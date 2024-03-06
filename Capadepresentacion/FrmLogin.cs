@@ -97,7 +97,7 @@ namespace Capadepresentacion
                 SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
             }
         }
-
+        #region BOTON INSERTAR
         private void btningresar_Click(object sender, EventArgs e)
         {
 
@@ -108,12 +108,12 @@ namespace Capadepresentacion
             // Verificar que los campos no estén vacíos o tengan los valores por defecto
             if (string.IsNullOrWhiteSpace(username) || username.Equals("USUARIO", StringComparison.OrdinalIgnoreCase))
             {
-                lblMensaje.Text = "Ingrese su nombre de usuario.";
+                msgError("Ingrese su nombre de usuario.");
                 return;
             }
             else if (string.IsNullOrWhiteSpace(password) || password.Equals("CONTRASEÑA", StringComparison.OrdinalIgnoreCase))
             {
-                lblMensaje.Text = "Ingrese su contraseña.";
+                msgError("Ingrese su contraseña.");
                 return;
             }
 
@@ -134,14 +134,15 @@ namespace Capadepresentacion
             else
             {
                 // Error de inicio de sesión
-                lblMensaje.Text = ("El usuario o la contraseña son incorrectos");
-                // Limpiar campos
-                txtusuario.Text = "USUARIO";
-                txtpassword.Text = "CONTRASEÑA";
-                txtpassword.UseSystemPasswordChar = false;
+                msgError("El usuario o la contraseña son incorrectos");
+
+
+
             }
         }
+        #endregion
 
+        #region BOTON REGISTRAR
         private void btnregistrar_Click(object sender, EventArgs e)
         {
             string username = txtusuario.Text;
@@ -149,32 +150,40 @@ namespace Capadepresentacion
 
             if (string.IsNullOrWhiteSpace(username) || username.Equals("USUARIO", StringComparison.OrdinalIgnoreCase))
             {
-                lblMensaje.Text = "Ingrese su nombre de usuario.";
+                msgError("Ingrese su nombre de usuario.");
                 return;
             }
             else if (string.IsNullOrWhiteSpace(password) || password.Equals("CONTRASEÑA", StringComparison.OrdinalIgnoreCase))
             {
-                lblMensaje.Text = "Ingrese su contraseña.";
+                msgError("Ingrese su contraseña.");
                 return;
             }
 
             if (userLogic.RegisterUser(username, password))
             {
-                lblMensaje.Text = ($"Se registró exitosamente el usuario {username} ");
+                msgError($"Usuario {username} registrado exitosamente.");
+
+                // Limpiar campos independientemente del resultado
+                txtusuario.Clear();
+                txtpassword.Clear();
+                txtpassword.UseSystemPasswordChar = false;
             }
+
             else
             {
-                lblMensaje.Text = ("No se pudo registrar el usuario");
+                msgError("No se pudo registrar el usuario");
             }
-            // Limpiar campos independientemente del resultado
-            txtusuario.Clear();
-            txtpassword.Clear();
-            txtpassword.UseSystemPasswordChar = false;
-        }
 
+        }
+        #endregion
         private void lblMensaje_Click(object sender, EventArgs e)
         {
 
+        }
+        private void msgError(string msg)
+        {
+            lblMensaje.Text = "    " + msg;
+            lblMensaje.Visible = true;
         }
     }
 

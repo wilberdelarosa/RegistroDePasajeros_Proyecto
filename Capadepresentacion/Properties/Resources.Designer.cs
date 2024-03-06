@@ -73,6 +73,46 @@ namespace Capadepresentacion.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap MaterialSymbolsLightErrorOutlineRounded {
+            get {
+                object obj = ResourceManager.GetObject("MaterialSymbolsLightErrorOutlineRounded", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MaterialSymbolsLightErrorOutlineRounded__1_ {
+            get {
+                object obj = ResourceManager.GetObject("MaterialSymbolsLightErrorOutlineRounded (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MaterialSymbolsLightErrorOutlineRounded__2_ {
+            get {
+                object obj = ResourceManager.GetObject("MaterialSymbolsLightErrorOutlineRounded (2)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MaterialSymbolsLightErrorOutlineRounded__3_ {
+            get {
+                object obj = ResourceManager.GetObject("MaterialSymbolsLightErrorOutlineRounded (3)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap minimizar {
             get {
                 object obj = ResourceManager.GetObject("minimizar", resourceCulture);

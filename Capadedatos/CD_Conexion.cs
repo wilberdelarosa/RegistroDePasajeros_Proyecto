@@ -16,6 +16,7 @@ namespace Capadedatos
             if (Conexion.State == ConnectionState.Closed)
 
                 Conexion.Open();
+
             return Conexion;
 
         }

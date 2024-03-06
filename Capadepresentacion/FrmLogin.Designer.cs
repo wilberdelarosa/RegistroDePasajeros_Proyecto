@@ -160,12 +160,17 @@
             // lblMensaje
             // 
             lblMensaje.AutoSize = true;
-            lblMensaje.Font = new Font("Rockwell", 7.8F, FontStyle.Regular, GraphicsUnit.Point);
+            lblMensaje.Font = new Font("MS Reference Sans Serif", 7.8F, FontStyle.Regular, GraphicsUnit.Point);
             lblMensaje.ForeColor = Color.OrangeRed;
-            lblMensaje.Location = new Point(434, 316);
+            lblMensaje.Image = Properties.Resources.MaterialSymbolsLightErrorOutlineRounded__3_;
+            lblMensaje.ImageAlign = ContentAlignment.MiddleLeft;
+            lblMensaje.Location = new Point(341, 189);
             lblMensaje.Name = "lblMensaje";
-            lblMensaje.Size = new Size(0, 16);
+            lblMensaje.Size = new Size(138, 16);
             lblMensaje.TabIndex = 8;
+            lblMensaje.Text = "    Mensaje de error";
+            lblMensaje.TextAlign = ContentAlignment.MiddleCenter;
+            lblMensaje.Visible = false;
             lblMensaje.Click += lblMensaje_Click;
             // 
             // FrmLogin

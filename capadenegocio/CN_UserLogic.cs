@@ -16,7 +16,7 @@ namespace capadenegocio
     {
         private CD_User CD_User = new CD_User();
         private CryptographyLogic cryptoLogic = new CryptographyLogic();
-        
+
 
         public bool RegisterUser(string username, string password)
         {
@@ -33,7 +33,7 @@ namespace capadenegocio
 
             return CD_User.SaveUser(user);
         }
-        
+
 
 
         public bool IsValidUser(string username, string password)
@@ -43,9 +43,13 @@ namespace capadenegocio
 
             byte[] passwordHash = cryptoLogic.HashPasswordWithSalt(Encoding.UTF8.GetBytes(password), user.Salt);
             return passwordHash.SequenceEqual(user.PasswordHash);
+
+
+
+
         }
 
-        
+
     }
 
 
