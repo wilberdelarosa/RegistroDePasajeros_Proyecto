@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34031.279
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Capadedatos", "Capadedatos\Capadedatos.csproj", "{5AF44665-0E85-458F-8EFF-E74225B3CE18}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Capadedatos", "Capadedatos\Capadedatos.csproj", "{5AF44665-0E85-458F-8EFF-E74225B3CE18}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "capadenegocio", "capadenegocio\capadenegocio.csproj", "{B85BBB48-7215-46BF-8EED-936186046C32}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "capadenegocio", "capadenegocio\capadenegocio.csproj", "{B85BBB48-7215-46BF-8EED-936186046C32}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Capadepresentacion", "Capadepresentacion\Capadepresentacion.csproj", "{BBD0BCB1-A667-4C23-9845-90AED0EEAACD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Capadepresentacion", "Capadepresentacion\Capadepresentacion.csproj", "{BBD0BCB1-A667-4C23-9845-90AED0EEAACD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -121,11 +121,17 @@ namespace Capadepresentacion
             if (userLogic.IsValidUser(username, password))
             {
                 // Inicio de sesión exitoso
-                MessageBox.Show($"Inicio de sesión exitoso, bienvenido usuario {username}");
+                //MessageBox.Show($"Inicio de sesión exitoso, bienvenido usuario {username}");
                 // Limpiar campos
                 txtusuario.Text = "USUARIO";
                 txtpassword.Text = "CONTRASEÑA";
                 txtpassword.UseSystemPasswordChar = false;
+
+                // Aca abrir el formulario principal
+                FormMainMenu FormMainMenu = new FormMainMenu();
+                this.Hide(); // Oculta el formulario de login
+                FormMainMenu.ShowDialog();
+                this.Close();
 
 
 
@@ -167,6 +173,9 @@ namespace Capadepresentacion
                 txtusuario.Clear();
                 txtpassword.Clear();
                 txtpassword.UseSystemPasswordChar = false;
+
+
+               
             }
 
             else

@@ -8,6 +8,7 @@ namespace Capadedatos
 {
     public class UserBE
     {
+
         // Propiedad para el ID del usuario.
         public int Id { get; set; }
 
@@ -19,5 +20,6 @@ namespace Capadedatos
 
         // Propiedad para el salt de la contraseña.
         public byte[] Salt { get; set; }
+        
     }
 }

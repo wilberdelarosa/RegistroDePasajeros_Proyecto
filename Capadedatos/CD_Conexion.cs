@@ -5,12 +5,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Data;
+using System.Configuration;
+
 
 namespace Capadedatos
 {
     public class CD_Conexion
     {
         public SqlConnection Conexion = new SqlConnection("Server=.;DataBase=pasajero;integrated Security=true");
+        
         public SqlConnection AbrirConexion()
         {
             if (Conexion.State == ConnectionState.Closed)
