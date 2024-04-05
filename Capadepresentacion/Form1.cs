@@ -21,7 +21,12 @@ namespace Capadepresentacion
 
         private void MostrarPasajeros()
         {
-        dataGridView1.DataSource = objetoCN.MostrarProd();
+            dataGridView1.DataSource = objetoCN.MostrarProd();
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

@@ -12,6 +12,7 @@ namespace Capadedatos
 {
     public class CD_Conexion
     {
+
         public SqlConnection Conexion = new SqlConnection("Server=.;DataBase=pasajero;integrated Security=true");
         
         public SqlConnection AbrirConexion()

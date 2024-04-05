@@ -16,11 +16,11 @@ namespace Capadedatos
         public string tipo_documento;
         public string num_documento;
         public int idpais;
-        public DateTime fecha_nacimiento;
+        public string fecha_nacimiento;
         public string telefono;
         public string email;
 
-        //propiedad de valida
+        //propiedad de validacion
 
 
         public int Id
@@ -38,9 +38,12 @@ namespace Capadedatos
         public string Num_documento
         { get => num_documento; set => num_documento = value; }
         public int Idpais { get => idpais; set => idpais = value; }
-        public DateTime Fecha_Nacimiento
+        public string Fecha_Nacimiento
         { get => fecha_nacimiento; set => fecha_nacimiento = value; }
         public string Telefono { get => telefono; set => telefono = value; }
         public string Email { get => email; set => email = value; }
+
+        
+
     }
 }
