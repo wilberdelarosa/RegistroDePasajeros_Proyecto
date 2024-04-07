@@ -135,7 +135,7 @@ namespace Capadepresentacion
             LimpiarCampos();
 
         }
-
+        #region BOTON BUSCAR PASAJERO 
         private void btnBuscarPasajero_Click(object sender, EventArgs e)
         {
 
@@ -173,6 +173,8 @@ namespace Capadepresentacion
 
 
 
+        #region BONTON EDITAR PASAJERO
+        private void btnEditarPasajero_Click(object sender, EventArgs e)
 
 
 
@@ -219,14 +221,12 @@ namespace Capadepresentacion
         }
        
                 else
-       
                 {
           
                     // Si la lista está vacía o es nula, muestra un mensaje.
            
                     dataGridViewPasajero.DataSource = null; // Limpia el DataGridView si no hay resultados.
            
-                    MessageBox.Show("No se encontraron pasajeros con ese nombre.", "Buscar Pasajeros", MessageBoxButtons.OK, MessageBoxIcon.Information);
        
                 }
              }

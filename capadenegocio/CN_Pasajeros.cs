@@ -32,7 +32,10 @@ namespace capadenegocio
             // Si todo está correcto, procedemos a agregar el pasajero
             cdPasajeros.AddPasajero(pasajero);
         }
-        // Obtiene todos los pasajeros, posiblemente aplicando algún filtro o transformación
+
+        #endregion
+
+        #region METODO OBTENER PASAJEROS DE LISTA
         public List<Modelo_Pasajeros> ObtenerPasajeros()
         {
             return cdPasajeros.GetPasajeros();

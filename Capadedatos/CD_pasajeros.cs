@@ -18,6 +18,8 @@ namespace Capadedatos
         DataTable tabla = new DataTable();
         SqlCommand comando = new SqlCommand();
        
+
+        #region MOSTRAR TODO
         public DataTable Mostrar()
         {
             comando.Connection = conexion.AbrirConexion();
