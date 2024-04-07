@@ -12,6 +12,7 @@ namespace Capadedatos
 {
     public class CD_Conexion
     {
+        private string cadenaConexion = "Server=.;DataBase=pasajero;Integrated Security=true";
 
         public SqlConnection Conexion = new SqlConnection("Server=.;DataBase=pasajero;integrated Security=true");
         
@@ -32,6 +33,13 @@ namespace Capadedatos
                 Conexion.Close();
             return Conexion;
 
+
         }
+
+        public SqlConnection ObtenerConexion()
+        {
+            return new SqlConnection(cadenaConexion);
+        }
+
     }
 }

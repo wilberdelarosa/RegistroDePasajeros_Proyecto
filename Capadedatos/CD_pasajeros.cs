@@ -17,12 +17,14 @@ namespace Capadedatos
         SqlDataAdapter leer;
         DataTable tabla = new DataTable();
         SqlCommand comando = new SqlCommand();
-       
+
 
         #region MOSTRAR TODO
         public DataTable Mostrar()
         {
             comando.Connection = conexion.AbrirConexion();
+            tabla.Clear();
+
             comando.CommandText = "select * from pasajeros";
             SqlDataReader leer = comando.ExecuteReader();
             tabla.Load(leer);
@@ -31,111 +33,139 @@ namespace Capadedatos
 
 
         }
+
+        #endregion
+
+
+        #region METODO AÑADIR PASAJEROS A BASE DE DATOS
         public void AddPasajero(Modelo_Pasajeros pasajero)
         {
             try
             {
-                using (SqlConnection conn = conexion.AbrirConexion())
+                using (SqlConnection conn = new CD_Conexion().ObtenerConexion())
                 {
-                    SqlCommand cmd = new SqlCommand("spAgregarPasajero", conn);
-                    //SqlCommand cmd = new SqlCommand("spAgregarPasajero", conexion.Conexion);
+                    conn.Open(); // Asegúrate de abrir la conexión dentro del bloque using.
+                    using (SqlCommand cmd = new SqlCommand("spAgregarPasajero", conn))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@nombre", pasajero.Nombre);
+                        cmd.Parameters.AddWithValue("@apellido", pasajero.Apellido);
+                        cmd.Parameters.AddWithValue("@tipo_documento", pasajero.Tipo_documento);
+                        cmd.Parameters.AddWithValue("@num_documento", pasajero.Num_documento);
+                        cmd.Parameters.AddWithValue("@fecha_nacimiento", pasajero.Fecha_Nacimiento);
+                        cmd.Parameters.AddWithValue("@idpais", pasajero.Idpais);
+                        cmd.Parameters.AddWithValue("@telefono", pasajero.Telefono);
+                        cmd.Parameters.AddWithValue("@email", pasajero.Email);
+
+                        cmd.ExecuteNonQuery();
+                        // No es necesario llamar a CerrarConexion aquí, el bloque using maneja el cierre de la conexión.
+                    }
+                }
+            }
+            catch (SqlException ex)
+
+            {
+                System.Diagnostics.Debug.WriteLine("SQL Error: " + ex.Message);
+                throw;
+            }
+
+        }
+        #endregion
+
+        #region METODO TIPO LISTA OBTENER PASAJEROS
+        public List<Modelo_Pasajeros> GetPasajeros()
+        {
+            var lista = new List<Modelo_Pasajeros>();
+
+            // La conexión se abre automáticamente al entrar al bloque using y se cierra al salir.
+            using (var conn = conexion.AbrirConexion())
+            {
+                using (var cmd = new SqlCommand("spConsultarPasajeros", conn))
+                {
                     cmd.CommandType = CommandType.StoredProcedure;
-                    //  un procedimiento almacenado con estos parámetros
+
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            var pasajero = new Modelo_Pasajeros
+                            {
+                                Id = Convert.ToInt32(reader["idpasajero"]),
+                                Nombre = reader["nombre"].ToString(),
+                                Apellido = reader["apellido"].ToString(),
+                                Tipo_documento = reader["tipo_documento"].ToString(),
+                                Num_documento = reader["num_documento"].ToString(),
+                                Fecha_Nacimiento = reader["fecha_nacimiento"].ToString(), // Ajustar si es necesario
+                                Idpais = Convert.ToInt32(reader["idpais"]),
+                                Telefono = reader["telefono"].ToString(),
+                                Email = reader["email"].ToString()
+                            };
+                            lista.Add(pasajero);
+                        }
+                    }
+                }
+            }
+
+            return lista;
+        }
+        #endregion
+
+        #region METODO PARA ACTUALIAZAR LOS PASAJEROS
+        // Método para actualizar un pasajero existente
+        public void UpdatePasajero(Modelo_Pasajeros pasajero)
+        {
+            using (SqlConnection conn = new CD_Conexion().ObtenerConexion())
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand("spActualizarPasajero", conn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@idpasajero", pasajero.Id);
                     cmd.Parameters.AddWithValue("@nombre", pasajero.Nombre);
                     cmd.Parameters.AddWithValue("@apellido", pasajero.Apellido);
                     cmd.Parameters.AddWithValue("@tipo_documento", pasajero.Tipo_documento);
                     cmd.Parameters.AddWithValue("@num_documento", pasajero.Num_documento);
                     cmd.Parameters.AddWithValue("@fecha_nacimiento", pasajero.Fecha_Nacimiento);
-                    cmd.Parameters.AddWithValue("@idpais", pasajero.Idpais); 
+                    cmd.Parameters.AddWithValue("@idpais", pasajero.Idpais);
                     cmd.Parameters.AddWithValue("@telefono", pasajero.Telefono);
                     cmd.Parameters.AddWithValue("@email", pasajero.Email);
 
                     cmd.ExecuteNonQuery();
-                    conexion.CerrarConexion();
-                }
-
-            }
-            catch (SqlException ex)
-            {
-                // Log o mostrar el mensaje de error SQL
-                System.Diagnostics.Debug.WriteLine("SQL Error: " + ex.Message);
-                throw; // O manejar según sea necesario
-            }
-            catch (Exception ex)
-            {
-                // Log o mostrar el mensaje de error general
-                System.Diagnostics.Debug.WriteLine("General Error: " + ex.Message);
-                throw; // O manejar según sea necesario
-            }
-
-        }
-            public List<Modelo_Pasajeros> GetPasajeros()
-        {
-            List<Modelo_Pasajeros> lista = new List<Modelo_Pasajeros>();
-            SqlCommand cmd = new SqlCommand("spConsultarPasajeros", conexion.Conexion);
-            cmd.CommandType = CommandType.StoredProcedure;
-
-            conexion.AbrirConexion();
-            using (SqlDataReader reader = cmd.ExecuteReader())
-            {
-                while (reader.Read())
-                {
-                    lista.Add(new Modelo_Pasajeros()
-                    {
-                        //Id = Convert.ToInt32(reader["idpasajero"]),
-                        Nombre = reader["nombre"].ToString(),
-                        Apellido = reader["apellido"].ToString(),
-                        Tipo_documento = reader["tipo_documento"].ToString(),
-                        Num_documento = reader["num_documento"].ToString(),
-                        Fecha_Nacimiento = reader["fecha_nacimiento"].ToString(),
-                        //Fecha_Nacimiento = Convert.ToDateTime(reader["fecha_nacimiento"]),
-                        Idpais = Convert.ToInt32(reader["idpais"]),
-                        Telefono = reader["telefono"].ToString(),
-                        Email = reader["email"].ToString()
-                    });
                 }
             }
-            conexion.CerrarConexion();
-
-            return lista;
         }
-        // Método para actualizar un pasajero existente
-        public void UpdatePasajero(Modelo_Pasajeros pasajero)
-        {
-            SqlCommand cmd = new SqlCommand("spActualizarPasajero", conexion.Conexion);
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@idpasajero", pasajero.Id);
-            cmd.Parameters.AddWithValue("@nombre", pasajero.Nombre);
-            cmd.Parameters.AddWithValue("@apellido", pasajero.Apellido);
-            cmd.Parameters.AddWithValue("@tipo_documento", pasajero.Tipo_documento);
-            cmd.Parameters.AddWithValue("@num_documento", pasajero.Num_documento);
-            cmd.Parameters.AddWithValue("@fecha_nacimiento", pasajero.Fecha_Nacimiento);
-            cmd.Parameters.AddWithValue("@idpais", pasajero.Idpais);
-            cmd.Parameters.AddWithValue("@telefono", pasajero.Telefono);
-            cmd.Parameters.AddWithValue("@email", pasajero.Email);
+        #endregion
 
-            conexion.AbrirConexion();
-            cmd.ExecuteNonQuery();
-            conexion.CerrarConexion();
-        }
 
+        #region METODO PARA ELIMINAR PASAJEROS
         // Método para eliminar un pasajero
         public void DeletePasajero(int id)
         {
-            SqlCommand cmd = new SqlCommand("spEliminarPasajero", conexion.Conexion);
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@idpasajero", id);
-
-            conexion.AbrirConexion();
-            cmd.ExecuteNonQuery();
-            conexion.CerrarConexion();
+            try
+            {
+                using (var conexion = new CD_Conexion().ObtenerConexion())
+                {
+                    conexion.Open();
+                    using (var cmd = new SqlCommand("spEliminarPasajero", conexion))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@idpasajero", id);
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // Manejo de excepciones
+                System.Diagnostics.Debug.WriteLine("ELIMINAR - SQL Error: " + ex.Message);
+            }
         }
 
+        #endregion
 
 
 
-
-
+        #region METODO BUSCAR PASAJEROS
         public DataTable BuscarPasajerosPorNombre(string nombre)
         {
             DataTable dataTable = new DataTable();
@@ -153,76 +183,57 @@ namespace Capadedatos
             }
             return dataTable;
         }
+        #endregion
 
+        #region METODO PARA OBTENER PASAJEROS POR ID
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        /*
-        public List<Modelo_Pasajeros> BuscarPasajerosPorNombre(string nombre)
+        public Modelo_Pasajeros ObtenerPasajeroPorId(int id)
         {
-            
-            List<Modelo_Pasajeros> lista = new List<Modelo_Pasajeros>();
-         
-            DataTable dataTable = new DataTable();
-            using (var connection = conexion.AbrirConexion())
+            Modelo_Pasajeros pasajero = null;
+            try
             {
-               
-                SqlCommand cmd = new SqlCommand("spBuscarPasajerosPorNombre", connection);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@nombre", nombre);
-
-                using (var reader = cmd.ExecuteReader())
+                conexion.AbrirConexion();
+                using (SqlCommand cmd = new SqlCommand("spObtenerPasajeroPorId", conexion.Conexion))
                 {
-                    while (reader.Read())
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@idpasajero", id);
+
+                    using (SqlDataReader reader = cmd.ExecuteReader())
                     {
-                        lista.Add(new Modelo_Pasajeros()
+                        if (reader.Read())
                         {
-                            Id = Convert.ToInt32(reader["idpasajero"]),
-                            Nombre = reader["nombre"].ToString(),
-                            Apellido = reader["apellido"].ToString(),
-                            Tipo_documento = reader["tipo_documento"].ToString(),
-                            Num_documento = reader["num_documento"].ToString(),
-                            Fecha_Nacimiento = reader["fecha_nacimiento"].ToString(), // Ajusta según tu modelo
-                            Idpais = Convert.ToInt32(reader["idpais"]),
-                            Telefono = reader["telefono"].ToString(),
-                            Email = reader["email"].ToString(),
-                        });
+                            pasajero = new Modelo_Pasajeros
+                            {
+                                Id = Convert.ToInt32(reader["idpasajero"]),
+                                Nombre = reader["nombre"].ToString(),
+                                Apellido = reader["apellido"].ToString(),
+                                Tipo_documento = reader["tipo_documento"].ToString(),
+                                Num_documento = reader["num_documento"].ToString(),
+                                Fecha_Nacimiento = Convert.ToDateTime(reader["fecha_nacimiento"]).ToString("yyyy-MM-dd"), // Ajustar según formato
+                                Idpais = Convert.ToInt32(reader["idpais"]),
+                                Telefono = reader["telefono"].ToString(),
+                                Email = reader["email"].ToString()
+                            };
+                        }
                     }
                 }
             }
-            conexion.CerrarConexion();
+            catch (Exception ex)
+            {
+                // Manejar la excepción
+                throw new Exception("Error al obtener el pasajero por ID", ex);
+            }
+            finally
+            {
+                conexion.CerrarConexion();
+            }
 
-            return lista;
-        }*/
+            return pasajero;
+        }
+
+        #endregion
+
+
 
     }
 }

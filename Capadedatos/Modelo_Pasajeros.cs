@@ -43,7 +43,8 @@ namespace Capadedatos
         public string Telefono { get => telefono; set => telefono = value; }
         public string Email { get => email; set => email = value; }
 
-        
+        public Modelo_Pasajeros() { }
+
 
     }
 }

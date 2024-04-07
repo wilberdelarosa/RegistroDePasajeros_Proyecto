@@ -30,13 +30,16 @@
         {
             TcPasajero = new TabControl();
             tabPagePasajeros = new TabPage();
-            btnEditarPasajero = new Button();
-            btnEliminarPasajero = new Button();
-            btnAgregarPasajero = new Button();
+            panelDtaGrid = new Panel();
+            dataGridViewPasajero = new DataGridView();
+            panelBotones = new Panel();
             btnBuscarPasajero = new Button();
             txtBuscarPasajero = new TextBox();
-            dataGridViewPasajero = new DataGridView();
+            btnAgregarPasajero = new Button();
+            btnEditarPasajero = new Button();
+            btnEliminarPasajero = new Button();
             tabAñadirPasajeros = new TabPage();
+            lblTituloFormulario = new Label();
             txtFechaNacimiento = new TextBox();
             BtnCancelar = new Button();
             btnGuardar = new Button();
@@ -47,7 +50,6 @@
             cmbTipoDocumento = new ComboBox();
             lblFechaNacimiento = new Label();
             lbltipodoc = new Label();
-            dtpFechaNacimiento = new DateTimePicker();
             lblApellido = new Label();
             txtApellidoPasajero = new TextBox();
             cmbPais = new ComboBox();
@@ -58,7 +60,9 @@
             txtNombrePasajero = new TextBox();
             TcPasajero.SuspendLayout();
             tabPagePasajeros.SuspendLayout();
+            panelDtaGrid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewPasajero).BeginInit();
+            panelBotones.SuspendLayout();
             tabAñadirPasajeros.SuspendLayout();
             SuspendLayout();
             // 
@@ -70,62 +74,62 @@
             TcPasajero.Location = new Point(0, 0);
             TcPasajero.Name = "TcPasajero";
             TcPasajero.SelectedIndex = 0;
-            TcPasajero.Size = new Size(1299, 705);
+            TcPasajero.Size = new Size(1299, 876);
             TcPasajero.TabIndex = 0;
             // 
             // tabPagePasajeros
             // 
             tabPagePasajeros.BackColor = Color.White;
-            tabPagePasajeros.Controls.Add(btnEditarPasajero);
-            tabPagePasajeros.Controls.Add(btnEliminarPasajero);
-            tabPagePasajeros.Controls.Add(btnAgregarPasajero);
-            tabPagePasajeros.Controls.Add(btnBuscarPasajero);
-            tabPagePasajeros.Controls.Add(txtBuscarPasajero);
-            tabPagePasajeros.Controls.Add(dataGridViewPasajero);
+            tabPagePasajeros.Controls.Add(panelDtaGrid);
+            tabPagePasajeros.Controls.Add(panelBotones);
             tabPagePasajeros.Font = new Font("Times New Roman", 9F, FontStyle.Bold, GraphicsUnit.Point);
             tabPagePasajeros.ForeColor = Color.MidnightBlue;
             tabPagePasajeros.Location = new Point(4, 29);
             tabPagePasajeros.Name = "tabPagePasajeros";
             tabPagePasajeros.Padding = new Padding(3);
-            tabPagePasajeros.Size = new Size(1291, 672);
+            tabPagePasajeros.Size = new Size(1291, 843);
             tabPagePasajeros.TabIndex = 0;
             tabPagePasajeros.Text = "Pasajeros";
             // 
-            // btnEditarPasajero
+            // panelDtaGrid
             // 
-            btnEditarPasajero.Anchor = AnchorStyles.Top;
-            btnEditarPasajero.Location = new Point(420, 100);
-            btnEditarPasajero.Name = "btnEditarPasajero";
-            btnEditarPasajero.Size = new Size(126, 29);
-            btnEditarPasajero.TabIndex = 5;
-            btnEditarPasajero.Text = "Editar";
-            btnEditarPasajero.UseVisualStyleBackColor = true;
+            panelDtaGrid.Controls.Add(dataGridViewPasajero);
+            panelDtaGrid.Dock = DockStyle.Fill;
+            panelDtaGrid.Location = new Point(3, 159);
+            panelDtaGrid.Name = "panelDtaGrid";
+            panelDtaGrid.Size = new Size(1285, 681);
+            panelDtaGrid.TabIndex = 7;
             // 
-            // btnEliminarPasajero
+            // dataGridViewPasajero
             // 
-            btnEliminarPasajero.Anchor = AnchorStyles.Top;
-            btnEliminarPasajero.Location = new Point(594, 100);
-            btnEliminarPasajero.Name = "btnEliminarPasajero";
-            btnEliminarPasajero.Size = new Size(128, 29);
-            btnEliminarPasajero.TabIndex = 4;
-            btnEliminarPasajero.Text = "Borrar";
-            btnEliminarPasajero.UseVisualStyleBackColor = true;
+            dataGridViewPasajero.BackgroundColor = Color.White;
+            dataGridViewPasajero.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewPasajero.Dock = DockStyle.Fill;
+            dataGridViewPasajero.Location = new Point(0, 0);
+            dataGridViewPasajero.Name = "dataGridViewPasajero";
+            dataGridViewPasajero.RowHeadersWidth = 51;
+            dataGridViewPasajero.RowTemplate.Height = 29;
+            dataGridViewPasajero.Size = new Size(1285, 681);
+            dataGridViewPasajero.TabIndex = 0;
             // 
-            // btnAgregarPasajero
+            // panelBotones
             // 
-            btnAgregarPasajero.Anchor = AnchorStyles.Top;
-            btnAgregarPasajero.Location = new Point(244, 100);
-            btnAgregarPasajero.Name = "btnAgregarPasajero";
-            btnAgregarPasajero.Size = new Size(149, 29);
-            btnAgregarPasajero.TabIndex = 3;
-            btnAgregarPasajero.Text = "Añadir nuevo";
-            btnAgregarPasajero.UseVisualStyleBackColor = true;
-            btnAgregarPasajero.Click += btnAgregarPasajero_Click;
+            panelBotones.Controls.Add(btnBuscarPasajero);
+            panelBotones.Controls.Add(txtBuscarPasajero);
+            panelBotones.Controls.Add(btnAgregarPasajero);
+            panelBotones.Controls.Add(btnEditarPasajero);
+            panelBotones.Controls.Add(btnEliminarPasajero);
+            panelBotones.Dock = DockStyle.Top;
+            panelBotones.Location = new Point(3, 3);
+            panelBotones.Name = "panelBotones";
+            panelBotones.Size = new Size(1285, 156);
+            panelBotones.TabIndex = 6;
             // 
             // btnBuscarPasajero
             // 
             btnBuscarPasajero.Anchor = AnchorStyles.Top;
-            btnBuscarPasajero.Location = new Point(244, 28);
+            btnBuscarPasajero.FlatAppearance.BorderSize = 2;
+            btnBuscarPasajero.Location = new Point(303, 19);
             btnBuscarPasajero.Name = "btnBuscarPasajero";
             btnBuscarPasajero.Size = new Size(94, 29);
             btnBuscarPasajero.TabIndex = 2;
@@ -136,25 +140,48 @@
             // txtBuscarPasajero
             // 
             txtBuscarPasajero.Anchor = AnchorStyles.Top;
-            txtBuscarPasajero.Location = new Point(375, 32);
+            txtBuscarPasajero.Location = new Point(421, 19);
             txtBuscarPasajero.Name = "txtBuscarPasajero";
             txtBuscarPasajero.Size = new Size(305, 25);
             txtBuscarPasajero.TabIndex = 1;
             // 
-            // dataGridViewPasajero
+            // btnAgregarPasajero
             // 
-            dataGridViewPasajero.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
-            dataGridViewPasajero.BackgroundColor = Color.White;
-            dataGridViewPasajero.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewPasajero.Location = new Point(41, 167);
-            dataGridViewPasajero.Name = "dataGridViewPasajero";
-            dataGridViewPasajero.RowHeadersWidth = 51;
-            dataGridViewPasajero.RowTemplate.Height = 29;
-            dataGridViewPasajero.Size = new Size(1116, 491);
-            dataGridViewPasajero.TabIndex = 0;
+            btnAgregarPasajero.Anchor = AnchorStyles.Top;
+            btnAgregarPasajero.FlatAppearance.BorderSize = 2;
+            btnAgregarPasajero.Location = new Point(290, 87);
+            btnAgregarPasajero.Name = "btnAgregarPasajero";
+            btnAgregarPasajero.Size = new Size(149, 29);
+            btnAgregarPasajero.TabIndex = 3;
+            btnAgregarPasajero.Text = "Añadir nuevo";
+            btnAgregarPasajero.UseVisualStyleBackColor = true;
+            btnAgregarPasajero.Click += btnAgregarPasajero_Click;
+            // 
+            // btnEditarPasajero
+            // 
+            btnEditarPasajero.Anchor = AnchorStyles.Top;
+            btnEditarPasajero.FlatAppearance.BorderSize = 2;
+            btnEditarPasajero.Location = new Point(466, 87);
+            btnEditarPasajero.Name = "btnEditarPasajero";
+            btnEditarPasajero.Size = new Size(126, 29);
+            btnEditarPasajero.TabIndex = 5;
+            btnEditarPasajero.Text = "Editar";
+            btnEditarPasajero.UseVisualStyleBackColor = true;
+            // 
+            // btnEliminarPasajero
+            // 
+            btnEliminarPasajero.Anchor = AnchorStyles.Top;
+            btnEliminarPasajero.FlatAppearance.BorderSize = 2;
+            btnEliminarPasajero.Location = new Point(640, 87);
+            btnEliminarPasajero.Name = "btnEliminarPasajero";
+            btnEliminarPasajero.Size = new Size(128, 29);
+            btnEliminarPasajero.TabIndex = 4;
+            btnEliminarPasajero.Text = "Borrar";
+            btnEliminarPasajero.UseVisualStyleBackColor = true;
             // 
             // tabAñadirPasajeros
             // 
+            tabAñadirPasajeros.Controls.Add(lblTituloFormulario);
             tabAñadirPasajeros.Controls.Add(txtFechaNacimiento);
             tabAñadirPasajeros.Controls.Add(BtnCancelar);
             tabAñadirPasajeros.Controls.Add(btnGuardar);
@@ -165,7 +192,6 @@
             tabAñadirPasajeros.Controls.Add(cmbTipoDocumento);
             tabAñadirPasajeros.Controls.Add(lblFechaNacimiento);
             tabAñadirPasajeros.Controls.Add(lbltipodoc);
-            tabAñadirPasajeros.Controls.Add(dtpFechaNacimiento);
             tabAñadirPasajeros.Controls.Add(lblApellido);
             tabAñadirPasajeros.Controls.Add(txtApellidoPasajero);
             tabAñadirPasajeros.Controls.Add(cmbPais);
@@ -178,10 +204,19 @@
             tabAñadirPasajeros.Location = new Point(4, 29);
             tabAñadirPasajeros.Name = "tabAñadirPasajeros";
             tabAñadirPasajeros.Padding = new Padding(3);
-            tabAñadirPasajeros.Size = new Size(1149, 672);
+            tabAñadirPasajeros.Size = new Size(1291, 843);
             tabAñadirPasajeros.TabIndex = 1;
             tabAñadirPasajeros.Text = "Añadir pasajeros";
             tabAñadirPasajeros.UseVisualStyleBackColor = true;
+            // 
+            // lblTituloFormulario
+            // 
+            lblTituloFormulario.AutoSize = true;
+            lblTituloFormulario.Location = new Point(389, 22);
+            lblTituloFormulario.Name = "lblTituloFormulario";
+            lblTituloFormulario.Size = new Size(71, 20);
+            lblTituloFormulario.TabIndex = 21;
+            lblTituloFormulario.Text = "Nombre ";
             // 
             // txtFechaNacimiento
             // 
@@ -268,13 +303,6 @@
             lbltipodoc.TabIndex = 9;
             lbltipodoc.Text = "Tipo de Documento";
             // 
-            // dtpFechaNacimiento
-            // 
-            dtpFechaNacimiento.Location = new Point(701, 329);
-            dtpFechaNacimiento.Name = "dtpFechaNacimiento";
-            dtpFechaNacimiento.Size = new Size(250, 27);
-            dtpFechaNacimiento.TabIndex = 8;
-            // 
             // lblApellido
             // 
             lblApellido.AutoSize = true;
@@ -344,15 +372,17 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1299, 705);
+            ClientSize = new Size(1299, 876);
             Controls.Add(TcPasajero);
             Name = "FormGestionPasajeros";
             Text = "Gestion de pasajeros";
             Load += FormGestionPasajeros_Load;
             TcPasajero.ResumeLayout(false);
             tabPagePasajeros.ResumeLayout(false);
-            tabPagePasajeros.PerformLayout();
+            panelDtaGrid.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGridViewPasajero).EndInit();
+            panelBotones.ResumeLayout(false);
+            panelBotones.PerformLayout();
             tabAñadirPasajeros.ResumeLayout(false);
             tabAñadirPasajeros.PerformLayout();
             ResumeLayout(false);
@@ -374,7 +404,6 @@
         private ComboBox cmbTipoDocumento;
         private Label lblFechaNacimiento;
         private Label lbltipodoc;
-        private DateTimePicker dtpFechaNacimiento;
         private Label lblApellido;
         private TextBox txtApellidoPasajero;
         private ComboBox cmbPais;
@@ -388,5 +417,8 @@
         private TextBox txtNumeroDocumento;
         private Button BtnCancelar;
         private TextBox txtFechaNacimiento;
+        private Panel panelDtaGrid;
+        private Panel panelBotones;
+        private Label lblTituloFormulario;
     }
 }
