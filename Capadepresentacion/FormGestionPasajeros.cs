@@ -72,9 +72,7 @@ namespace Capadepresentacion
             cmbPais.ValueMember = "Idpais"; // Esto es lo que se almacenará como valor.
 
             cmbPais.SelectedIndex = 0;
-            //cmbPais.DataSource = negocioPais.ObtenerPaises(); // Asume que esto devuelve List<Modelo_Pais>
-            // cmbPais.DisplayMember = "Nombre"; // Esto muestra el nombre del país en el ComboBox
-            //cmbPais.ValueMember = "Idpais"; // Esto asocia el ID del país como valor interno en cada elemento
+            
         }
         #endregion
 
@@ -93,10 +91,11 @@ namespace Capadepresentacion
 };
         #endregion
 
+        #region BOTON GUARDAR
         private Modelo_Pasajeros pasajeroActual;
         private bool esModoEdicion = false;
 
-        #region BOTON GUARDAR
+    
         private void btnGuardar_Click(object sender, EventArgs e)
         {
 
@@ -206,29 +205,7 @@ namespace Capadepresentacion
             txtEmail.Text = pasajero.Email;
 
 
-            /*
-                     private void LlenarDatosParaEditar(DataTable pasajeroDataTable)
- 
-            
-            // -------------------------------------------------------------------------------
-            if (pasajeroDataTable != null && pasajeroDataTable.Rows.Count > 0)
-            {
-                // Asumiendo que siempre trabajaremos con la primera fila del DataTable
-                DataRow fila = pasajeroDataTable.Rows[0];
-
-                // Ahora, actualiza los controles del formulario directamente con los valores de la fila
-                txtNombrePasajero.Text = fila["nombre"].ToString();
-                txtApellidoPasajero.Text = fila["apellido"].ToString();
-                // Asume que cmbTipoDocumento es un ComboBox que ya contiene los tipos de documento como ítems
-                cmbTipoDocumento.SelectedItem = fila["tipo_documento"].ToString();
-                txtNumeroDocumento.Text = fila["num_documento"].ToString();
-                // Ajusta la fecha de nacimiento según el control que uses. Si es un DateTimePicker:
-                txtFechaNacimiento.Text = fila["fecha_nacimiento"].ToString();
-                // Asume que cmbPais es un ComboBox vinculado a una fuente de datos con ValueMember establecido a "idpais"
-                cmbPais.SelectedValue = Convert.ToInt32(fila["idpais"]);
-                txtTelefono.Text = fila["telefono"].ToString();
-                txtEmail.Text = fila["email"].ToString();
-            }*/
+       
 
 
 

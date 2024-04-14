@@ -13,6 +13,9 @@ namespace Capadepresentacion
             ApplicationConfiguration.Initialize();
             //Application.Run(new FrmLogin());
            Application.Run(new FormMainMenu());
+            
+           //Application.Run(new FormPagos());
+
         }
     }
 }

@@ -19,6 +19,7 @@ namespace Capadedatos
         public string fecha_nacimiento;
         public string telefono;
         public string email;
+        public string estado;
 
         //propiedad de validacion
 
@@ -42,9 +43,11 @@ namespace Capadedatos
         { get => fecha_nacimiento; set => fecha_nacimiento = value; }
         public string Telefono { get => telefono; set => telefono = value; }
         public string Email { get => email; set => email = value; }
-
         public Modelo_Pasajeros() { }
 
-
+       
     }
+
+
 }
+

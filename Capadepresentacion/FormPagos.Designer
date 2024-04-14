@@ -1,6 +1,6 @@
 ﻿namespace Capadepresentacion
 {
-    partial class FormGestionPasajeros : Form
+    partial class FormPagos
     {
         /// <summary>
         /// Required designer variable.
@@ -28,17 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            TcPasajero = new TabControl();
-            tabPagePasajeros = new TabPage();
+            TcPago = new TabControl();
+            tabPagePago = new TabPage();
             panelDtaGrid = new Panel();
-            dataGridViewPasajero = new DataGridView();
+            dataGridViewPago = new DataGridView();
             panelBotones = new Panel();
-            btnBuscarPasajero = new Button();
+            btnBuscarPago = new Button();
             txtBuscarPasajero = new TextBox();
             btnAgregarPasajero = new Button();
-            btnEditarPasajero = new Button();
-            btnEliminarPasajero = new Button();
-            tabAñadirPasajeros = new TabPage();
+            btnEditarPago = new Button();
+            btnReembolso = new Button();
+            tabAñadirPago = new TabPage();
             lblTituloFormulario = new Label();
             txtFechaNacimiento = new TextBox();
             BtnCancelar = new Button();
@@ -58,84 +58,84 @@
             txtTelefono = new TextBox();
             lblNombre = new Label();
             txtNombrePasajero = new TextBox();
-            TcPasajero.SuspendLayout();
-            tabPagePasajeros.SuspendLayout();
+            TcPago.SuspendLayout();
+            tabPagePago.SuspendLayout();
             panelDtaGrid.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridViewPasajero).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewPago).BeginInit();
             panelBotones.SuspendLayout();
-            tabAñadirPasajeros.SuspendLayout();
+            tabAñadirPago.SuspendLayout();
             SuspendLayout();
             // 
-            // TcPasajero
+            // TcPago
             // 
-            TcPasajero.Controls.Add(tabPagePasajeros);
-            TcPasajero.Controls.Add(tabAñadirPasajeros);
-            TcPasajero.Dock = DockStyle.Fill;
-            TcPasajero.Location = new Point(0, 0);
-            TcPasajero.Name = "TcPasajero";
-            TcPasajero.SelectedIndex = 0;
-            TcPasajero.Size = new Size(1299, 876);
-            TcPasajero.TabIndex = 0;
+            TcPago.Controls.Add(tabPagePago);
+            TcPago.Controls.Add(tabAñadirPago);
+            TcPago.Dock = DockStyle.Fill;
+            TcPago.Location = new Point(0, 0);
+            TcPago.Name = "TcPago";
+            TcPago.SelectedIndex = 0;
+            TcPago.Size = new Size(1299, 876);
+            TcPago.TabIndex = 0;
             // 
-            // tabPagePasajeros
+            // tabPagePago
             // 
-            tabPagePasajeros.BackColor = Color.White;
-            tabPagePasajeros.Controls.Add(panelDtaGrid);
-            tabPagePasajeros.Controls.Add(panelBotones);
-            tabPagePasajeros.Font = new Font("Times New Roman", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            tabPagePasajeros.ForeColor = Color.MidnightBlue;
-            tabPagePasajeros.Location = new Point(4, 29);
-            tabPagePasajeros.Name = "tabPagePasajeros";
-            tabPagePasajeros.Padding = new Padding(3);
-            tabPagePasajeros.Size = new Size(1291, 843);
-            tabPagePasajeros.TabIndex = 0;
-            tabPagePasajeros.Text = "Pasajeros";
+            tabPagePago.BackColor = Color.White;
+            tabPagePago.Controls.Add(panelDtaGrid);
+            tabPagePago.Controls.Add(panelBotones);
+            tabPagePago.Font = new Font("Times New Roman", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            tabPagePago.ForeColor = Color.MidnightBlue;
+            tabPagePago.Location = new Point(4, 29);
+            tabPagePago.Name = "tabPagePago";
+            tabPagePago.Padding = new Padding(3);
+            tabPagePago.Size = new Size(1291, 843);
+            tabPagePago.TabIndex = 0;
+            tabPagePago.Text = "Pago";
             // 
             // panelDtaGrid
             // 
-            panelDtaGrid.Controls.Add(dataGridViewPasajero);
+            panelDtaGrid.Controls.Add(dataGridViewPago);
             panelDtaGrid.Dock = DockStyle.Fill;
             panelDtaGrid.Location = new Point(3, 159);
             panelDtaGrid.Name = "panelDtaGrid";
             panelDtaGrid.Size = new Size(1285, 681);
             panelDtaGrid.TabIndex = 7;
             // 
-            // dataGridViewPasajero
+            // dataGridViewPago
             // 
-            dataGridViewPasajero.BackgroundColor = Color.White;
-            dataGridViewPasajero.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewPasajero.Dock = DockStyle.Fill;
-            dataGridViewPasajero.Location = new Point(0, 0);
-            dataGridViewPasajero.Name = "dataGridViewPasajero";
-            dataGridViewPasajero.RowHeadersWidth = 51;
-            dataGridViewPasajero.RowTemplate.Height = 29;
-            dataGridViewPasajero.Size = new Size(1285, 681);
-            dataGridViewPasajero.TabIndex = 0;
+            dataGridViewPago.BackgroundColor = Color.White;
+            dataGridViewPago.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewPago.Dock = DockStyle.Fill;
+            dataGridViewPago.Location = new Point(0, 0);
+            dataGridViewPago.Name = "dataGridViewPago";
+            dataGridViewPago.RowHeadersWidth = 51;
+            dataGridViewPago.RowTemplate.Height = 29;
+            dataGridViewPago.Size = new Size(1285, 681);
+            dataGridViewPago.TabIndex = 0;
             // 
             // panelBotones
             // 
-            panelBotones.Controls.Add(btnBuscarPasajero);
+            panelBotones.Controls.Add(btnBuscarPago);
             panelBotones.Controls.Add(txtBuscarPasajero);
             panelBotones.Controls.Add(btnAgregarPasajero);
-            panelBotones.Controls.Add(btnEditarPasajero);
-            panelBotones.Controls.Add(btnEliminarPasajero);
+            panelBotones.Controls.Add(btnEditarPago);
+            panelBotones.Controls.Add(btnReembolso);
             panelBotones.Dock = DockStyle.Top;
             panelBotones.Location = new Point(3, 3);
             panelBotones.Name = "panelBotones";
             panelBotones.Size = new Size(1285, 156);
             panelBotones.TabIndex = 6;
             // 
-            // btnBuscarPasajero
+            // btnBuscarPago
             // 
-            btnBuscarPasajero.Anchor = AnchorStyles.Top;
-            btnBuscarPasajero.FlatAppearance.BorderSize = 2;
-            btnBuscarPasajero.Location = new Point(303, 19);
-            btnBuscarPasajero.Name = "btnBuscarPasajero";
-            btnBuscarPasajero.Size = new Size(94, 29);
-            btnBuscarPasajero.TabIndex = 2;
-            btnBuscarPasajero.Text = "Buscar";
-            btnBuscarPasajero.UseVisualStyleBackColor = true;
-            btnBuscarPasajero.Click += btnBuscarPasajero_Click;
+            btnBuscarPago.Anchor = AnchorStyles.Top;
+            btnBuscarPago.FlatAppearance.BorderSize = 2;
+            btnBuscarPago.Location = new Point(303, 19);
+            btnBuscarPago.Name = "btnBuscarPago";
+            btnBuscarPago.Size = new Size(94, 29);
+            btnBuscarPago.TabIndex = 2;
+            btnBuscarPago.Text = "Buscar";
+            btnBuscarPago.UseVisualStyleBackColor = true;
+            btnBuscarPago.Click += btnBuscarPasajero_Click;
             // 
             // txtBuscarPasajero
             // 
@@ -157,57 +157,57 @@
             btnAgregarPasajero.UseVisualStyleBackColor = true;
             btnAgregarPasajero.Click += btnAgregarPasajero_Click;
             // 
-            // btnEditarPasajero
+            // btnEditarPago
             // 
-            btnEditarPasajero.Anchor = AnchorStyles.Top;
-            btnEditarPasajero.FlatAppearance.BorderSize = 2;
-            btnEditarPasajero.Location = new Point(466, 87);
-            btnEditarPasajero.Name = "btnEditarPasajero";
-            btnEditarPasajero.Size = new Size(126, 29);
-            btnEditarPasajero.TabIndex = 5;
-            btnEditarPasajero.Text = "Editar";
-            btnEditarPasajero.UseVisualStyleBackColor = true;
+            btnEditarPago.Anchor = AnchorStyles.Top;
+            btnEditarPago.FlatAppearance.BorderSize = 2;
+            btnEditarPago.Location = new Point(466, 87);
+            btnEditarPago.Name = "btnEditarPago";
+            btnEditarPago.Size = new Size(126, 29);
+            btnEditarPago.TabIndex = 5;
+            btnEditarPago.Text = "Editar";
+            btnEditarPago.UseVisualStyleBackColor = true;
             // 
-            // btnEliminarPasajero
+            // btnReembolso
             // 
-            btnEliminarPasajero.Anchor = AnchorStyles.Top;
-            btnEliminarPasajero.FlatAppearance.BorderSize = 2;
-            btnEliminarPasajero.Location = new Point(640, 87);
-            btnEliminarPasajero.Name = "btnEliminarPasajero";
-            btnEliminarPasajero.Size = new Size(128, 29);
-            btnEliminarPasajero.TabIndex = 4;
-            btnEliminarPasajero.Text = "Borrar";
-            btnEliminarPasajero.UseVisualStyleBackColor = true;
+            btnReembolso.Anchor = AnchorStyles.Top;
+            btnReembolso.FlatAppearance.BorderSize = 2;
+            btnReembolso.Location = new Point(640, 87);
+            btnReembolso.Name = "btnReembolso";
+            btnReembolso.Size = new Size(128, 29);
+            btnReembolso.TabIndex = 4;
+            btnReembolso.Text = "Borrar";
+            btnReembolso.UseVisualStyleBackColor = true;
             // 
-            // tabAñadirPasajeros
+            // tabAñadirPago
             // 
-            tabAñadirPasajeros.Controls.Add(lblTituloFormulario);
-            tabAñadirPasajeros.Controls.Add(txtFechaNacimiento);
-            tabAñadirPasajeros.Controls.Add(BtnCancelar);
-            tabAñadirPasajeros.Controls.Add(btnGuardar);
-            tabAñadirPasajeros.Controls.Add(lblnumerodoc);
-            tabAñadirPasajeros.Controls.Add(txtNumeroDocumento);
-            tabAñadirPasajeros.Controls.Add(lblEmail);
-            tabAñadirPasajeros.Controls.Add(txtEmail);
-            tabAñadirPasajeros.Controls.Add(cmbTipoDocumento);
-            tabAñadirPasajeros.Controls.Add(lblFechaNacimiento);
-            tabAñadirPasajeros.Controls.Add(lbltipodoc);
-            tabAñadirPasajeros.Controls.Add(lblApellido);
-            tabAñadirPasajeros.Controls.Add(txtApellidoPasajero);
-            tabAñadirPasajeros.Controls.Add(cmbPais);
-            tabAñadirPasajeros.Controls.Add(lblPais);
-            tabAñadirPasajeros.Controls.Add(lblTelefono);
-            tabAñadirPasajeros.Controls.Add(txtTelefono);
-            tabAñadirPasajeros.Controls.Add(lblNombre);
-            tabAñadirPasajeros.Controls.Add(txtNombrePasajero);
-            tabAñadirPasajeros.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            tabAñadirPasajeros.Location = new Point(4, 29);
-            tabAñadirPasajeros.Name = "tabAñadirPasajeros";
-            tabAñadirPasajeros.Padding = new Padding(3);
-            tabAñadirPasajeros.Size = new Size(1291, 843);
-            tabAñadirPasajeros.TabIndex = 1;
-            tabAñadirPasajeros.Text = "Añadir pasajeros";
-            tabAñadirPasajeros.UseVisualStyleBackColor = true;
+            tabAñadirPago.Controls.Add(lblTituloFormulario);
+            tabAñadirPago.Controls.Add(txtFechaNacimiento);
+            tabAñadirPago.Controls.Add(BtnCancelar);
+            tabAñadirPago.Controls.Add(btnGuardar);
+            tabAñadirPago.Controls.Add(lblnumerodoc);
+            tabAñadirPago.Controls.Add(txtNumeroDocumento);
+            tabAñadirPago.Controls.Add(lblEmail);
+            tabAñadirPago.Controls.Add(txtEmail);
+            tabAñadirPago.Controls.Add(cmbTipoDocumento);
+            tabAñadirPago.Controls.Add(lblFechaNacimiento);
+            tabAñadirPago.Controls.Add(lbltipodoc);
+            tabAñadirPago.Controls.Add(lblApellido);
+            tabAñadirPago.Controls.Add(txtApellidoPasajero);
+            tabAñadirPago.Controls.Add(cmbPais);
+            tabAñadirPago.Controls.Add(lblPais);
+            tabAñadirPago.Controls.Add(lblTelefono);
+            tabAñadirPago.Controls.Add(txtTelefono);
+            tabAñadirPago.Controls.Add(lblNombre);
+            tabAñadirPago.Controls.Add(txtNombrePasajero);
+            tabAñadirPago.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            tabAñadirPago.Location = new Point(4, 29);
+            tabAñadirPago.Name = "tabAñadirPago";
+            tabAñadirPago.Padding = new Padding(3);
+            tabAñadirPago.Size = new Size(1291, 843);
+            tabAñadirPago.TabIndex = 1;
+            tabAñadirPago.Text = "Añadir pago";
+            tabAñadirPago.UseVisualStyleBackColor = true;
             // 
             // lblTituloFormulario
             // 
@@ -368,36 +368,36 @@
             txtNombrePasajero.Size = new Size(250, 27);
             txtNombrePasajero.TabIndex = 0;
             // 
-            // FormGestionPasajeros
+            // FormPagos
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1299, 876);
-            Controls.Add(TcPasajero);
-            Name = "FormGestionPasajeros";
-            Text = "Gestion de pasajeros";
+            Controls.Add(TcPago);
+            Name = "FormPagos";
+            Text = "Gestion de pagos";
             Load += FormGestionPasajeros_Load;
-            TcPasajero.ResumeLayout(false);
-            tabPagePasajeros.ResumeLayout(false);
+            TcPago.ResumeLayout(false);
+            tabPagePago.ResumeLayout(false);
             panelDtaGrid.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dataGridViewPasajero).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewPago).EndInit();
             panelBotones.ResumeLayout(false);
             panelBotones.PerformLayout();
-            tabAñadirPasajeros.ResumeLayout(false);
-            tabAñadirPasajeros.PerformLayout();
+            tabAñadirPago.ResumeLayout(false);
+            tabAñadirPago.PerformLayout();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private TabControl TcPasajero;
-        private TabPage tabPagePasajeros;
-        private TabPage tabAñadirPasajeros;
-        private Button btnBuscarPasajero;
+        private TabControl TcPago;
+        private TabPage tabPagePago;
+        private TabPage tabAñadirPago;
+        private Button btnBuscarPago;
         private TextBox txtBuscarPasajero;
-        private DataGridView dataGridViewPasajero;
-        private Button btnEditarPasajero;
-        private Button btnEliminarPasajero;
+        private DataGridView dataGridViewPago;
+        private Button btnEditarPago;
+        private Button btnReembolso;
         private Button btnAgregarPasajero;
         private Label lblEmail;
         private TextBox txtEmail;

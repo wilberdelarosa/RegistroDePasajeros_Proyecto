@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static Capadedatos.Modelo_Pasajeros;
 
 namespace Capadedatos
 {
@@ -35,8 +36,7 @@ namespace Capadedatos
         }
 
         #endregion
-
-
+ 
         #region METODO AÑADIR PASAJEROS A BASE DE DATOS
         public void AddPasajero(Modelo_Pasajeros pasajero)
         {
@@ -233,6 +233,39 @@ namespace Capadedatos
 
         #endregion
 
+        public List<Modelo_Pasajeros> ObtenerPasajerosConIdYNombre()
+        {
+            List<Modelo_Pasajeros> listaPasajeros = new List<Modelo_Pasajeros>();
+            try
+            {
+               
+                    SqlCommand cmd = new SqlCommand("SELECT idpasajero, nombre from pasajeros", conexion.Conexion);
+                conexion.AbrirConexion();
+
+                {
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                listaPasajeros.Add(new Modelo_Pasajeros()
+                                {
+                                    Id = Convert.ToInt32(reader["idpasajero"]),
+                                    Nombre = reader["nombre"].ToString()
+                                });
+                            }
+                        }
+                }
+                
+            }
+            catch (SqlException ex)
+            {
+                // Maneja las excepciones como sea apropiado para tu aplicación
+                System.Diagnostics.Debug.WriteLine("SQL Error: " + ex.Message);
+            }
+            conexion.CerrarConexion();
+
+            return listaPasajeros;
+        }
 
 
     }

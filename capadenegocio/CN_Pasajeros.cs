@@ -7,12 +7,14 @@ using System.Data;
 using System.Data.SqlClient;
 using Capadedatos;
 using static System.Runtime.InteropServices.JavaScript.JSType;
+using static Capadedatos.Modelo_Pasajeros;
+using static capadenegocio.CN_Pasajeros;
 
 namespace capadenegocio
 {
     public class CN_Pasajeros
     {
-        private CD_pasajeros objetoCD = new CD_pasajeros();
+        //private CD_pasajeros objetoCD = new CD_pasajeros();
         private CD_pasajeros cdPasajeros = new CD_pasajeros();
 
 
@@ -21,7 +23,7 @@ namespace capadenegocio
         public DataTable MostrarDatosPasajeros()
         {
             DataTable tabla = new DataTable();
-            tabla = objetoCD.Mostrar();
+            tabla = cdPasajeros.Mostrar();
             return tabla;
         }
 
@@ -107,6 +109,18 @@ namespace capadenegocio
 
         #endregion
 
+       
+        public List<Modelo_Pasajeros> ObtenerPasajeroPago()
+        {
+            // Llamada a la capa de datos para obtener la lista de países
+            return cdPasajeros.ObtenerPasajerosConIdYNombre();
+        }
+
+        public List<Modelo_Pasajeros> ObtenerPasajerosConIdYNombre0()
+            {
+                return cdPasajeros.ObtenerPasajerosConIdYNombre();
+            }
+        
 
     }
 }

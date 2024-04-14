@@ -22,7 +22,7 @@ namespace Capadedatos
         {
             while (reader.Read())
             {
-                lista.Add(new Modelo_Pais()
+                lista.Add(new Modelo_Pais() //listaPasajeros
                 {
                     Idpais = Convert.ToInt32(reader["idpais"]),
                     Nombre = reader["nombre"].ToString(),
