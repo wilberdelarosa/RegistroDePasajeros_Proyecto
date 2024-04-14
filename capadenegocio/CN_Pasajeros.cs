@@ -54,7 +54,7 @@ namespace capadenegocio
         }
         #endregion
 
-        #region
+        #region ELIMINAR PASAJERO
 
         // Elimina un pasajero por su ID
         public void EliminarPasajero(int idPasajero)
