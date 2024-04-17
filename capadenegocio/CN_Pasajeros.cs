@@ -109,12 +109,8 @@ namespace capadenegocio
 
         #endregion
 
-       
-        public List<Modelo_Pasajeros> ObtenerPasajeroPago()
-        {
-            // Llamada a la capa de datos para obtener la lista de países
-            return cdPasajeros.ObtenerPasajerosConIdYNombre();
-        }
+
+     
 
         public List<Modelo_Pasajeros> ObtenerPasajerosConIdYNombre0()
             {

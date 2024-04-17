@@ -70,15 +70,23 @@ namespace capadenegocio
 
         #endregion
 
-        #region METODO BUSCAR PAGGO POR NOMBRE
+        
 
+            public List<ModeloConsultaAvanzada> BuscarPagosAvanzados(int? idPasajero, string nombre, string tipoPago, string estado, string pais)
+            {
+                return cdPago.BuscarPagosAvanzados(idPasajero, nombre, tipoPago, estado, pais);
+            }
+        
 
-        public DataTable BuscarPasajerosPorNombre01(string nombre)
+        /*
+        #region METODO BUSCAR PAGO AVANZADO
+      
+        public DataTable ObtenerPagosAvanzados(int? idPasajero, string nombre, string tipoPago, string estado, string pais)
         {
-            return cdPago.BuscarPasajerosPorNombre(nombre);
+                return cdPago.BuscarPagosAvanzados(idPasajero, nombre, tipoPago, estado, pais);
         }
         #endregion
-       
+     */
         public Modelo_Pago ObtenerPagoPorId(int id)
         #region METODO TENER PAGO POR ID
         {

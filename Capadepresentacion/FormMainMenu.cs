@@ -67,6 +67,19 @@ namespace Capadepresentacion
                 iconCurrentChildForm.IconColor = color;
             }
         }
+        private FrmLogin loginForm;
+
+        public void SetLoginForm(FrmLogin form)
+        {
+            loginForm = form;
+        }
+
+        // Evento FormClosed del FormMainMenu
+        private void FormMainMenu_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            // Activar el botón de registro en FrmLogin
+            loginForm.ActivarBotonRegistrar();
+        }
 
         private void DisableButton()
         {
@@ -182,6 +195,19 @@ namespace Capadepresentacion
         {
             this.WindowState = FormWindowState.Minimized;
 
+        }
+
+        private void btnRegistrar_Click(object sender, EventArgs e)
+        {
+            // Aquí reutilizamos el formulario de login si ya existe, o creamos uno nuevo
+            FrmLogin loginForm = Application.OpenForms.OfType<FrmLogin>().FirstOrDefault() ?? new FrmLogin();
+
+            // Activamos el botón de registro
+            loginForm.ActivarBotonRegistrar();
+            //loginForm.txtpassword.Clear;
+
+            // Mostramos el formulario de login
+            loginForm.Show();
         }
     }
 }

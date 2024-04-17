@@ -16,7 +16,7 @@ namespace Capadedatos
         SqlDataAdapter leer;
         DataTable tabla = new DataTable();
         SqlCommand comando = new SqlCommand();
-        private string? Estado;
+        //private string? Estado;
 
 
       
@@ -300,28 +300,53 @@ namespace Capadedatos
         }
         #endregion
 
-        public DataTable BuscarPasajerosPorNombre(string nombre)
-        #region METODO BUSCAR pago por pasajero
+
+        public List<ModeloConsultaAvanzada> BuscarPagosAvanzados(int? idPasajero, string nombre, string tipoPago, string estado, string pais)
+        #region METODO DE LISTADO BUSQUEDA AVANZADA
 
         {
-            DataTable dataTable = new DataTable();
-            using (SqlCommand cmd = new SqlCommand("spBuscarPagos", conexion.Conexion))
+            List<ModeloConsultaAvanzada> listaResultados = new List<ModeloConsultaAvanzada>();
+            using (SqlConnection conn = conexion.ObtenerConexion())
             {
+                SqlCommand cmd = new SqlCommand("spBuscarPagosAvanzado", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@nombre", nombre);
+                cmd.Parameters.AddWithValue("@idPasajero", idPasajero ?? (object)DBNull.Value);
+                cmd.Parameters.AddWithValue("@nombre", string.IsNullOrEmpty(nombre) ? (object)DBNull.Value : nombre);
+                cmd.Parameters.AddWithValue("@tipoPago", string.IsNullOrEmpty(tipoPago) ? (object)DBNull.Value : tipoPago);
+                cmd.Parameters.AddWithValue("@estado", string.IsNullOrEmpty(estado) ? (object)DBNull.Value : estado);
+                cmd.Parameters.AddWithValue("@pais", string.IsNullOrEmpty(pais) ? (object)DBNull.Value : pais);
 
-                conexion.AbrirConexion();
-                using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
+                conn.Open();
+                using (SqlDataReader reader = cmd.ExecuteReader())
                 {
-                    adapter.Fill(dataTable);
+                    while (reader.Read())
+                    {
+                        var resultado = new ModeloConsultaAvanzada
+                        {
+                            Idpago = reader.GetInt32(reader.GetOrdinal("idpago")),
+                            Fecha = DateOnly.FromDateTime(reader.GetDateTime(reader.GetOrdinal("fecha"))),
+                            Idpasajero = reader.GetInt32(reader.GetOrdinal("idpasajero")),
+                            Nombre_pasajero = reader.GetString(reader.GetOrdinal("nombre_pasajero")),
+                            Apellido = reader.GetString(reader.GetOrdinal("apellido")),
+                            Tipo_documento = reader.GetString(reader.GetOrdinal("tipo_documento")),
+                            Num_documento = reader.GetString(reader.GetOrdinal("num_documento")),
+                            Fecha_nacimiento = DateOnly.FromDateTime(reader.GetDateTime(reader.GetOrdinal("fecha_nacimiento"))),
+                            Pais = reader.GetString(reader.GetOrdinal("pais")),
+                            Telefono = reader.GetString(reader.GetOrdinal("telefono")),
+                            Email = reader.GetString(reader.GetOrdinal("email")),
+                            Monto = reader.GetDecimal(reader.GetOrdinal("monto")),
+                            Tipo_pago = reader.GetString(reader.GetOrdinal("tipo_pago")),
+                            Impuesto = reader.GetDecimal(reader.GetOrdinal("impuesto")),
+                            Total = reader.GetDecimal(reader.GetOrdinal("total")),
+                            Estado = reader.IsDBNull(reader.GetOrdinal("estado")) ? null : reader.GetString(reader.GetOrdinal("estado")),
+                        };
+                        listaResultados.Add(resultado);
+                    }
                 }
-                conexion.CerrarConexion();
             }
-            return dataTable;
+            return listaResultados;
         }
         #endregion
-
-
         public Modelo_Pago ObtenerPagoPorId0(int id)
         #region OBTENER PAGO POR ID
         {

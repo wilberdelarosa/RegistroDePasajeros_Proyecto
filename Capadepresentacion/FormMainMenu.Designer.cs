@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMainMenu));
             panelMenu = new Panel();
+            btnRegistrar = new FontAwesome.Sharp.IconButton();
             btnacercade = new FontAwesome.Sharp.IconButton();
             ptnconsultas = new FontAwesome.Sharp.IconButton();
             btnpagos = new FontAwesome.Sharp.IconButton();
@@ -57,6 +58,7 @@
             // panelMenu
             // 
             panelMenu.BackColor = Color.FromArgb(30, 31, 68);
+            panelMenu.Controls.Add(btnRegistrar);
             panelMenu.Controls.Add(btnacercade);
             panelMenu.Controls.Add(ptnconsultas);
             panelMenu.Controls.Add(btnpagos);
@@ -65,8 +67,28 @@
             panelMenu.Dock = DockStyle.Left;
             panelMenu.Location = new Point(0, 0);
             panelMenu.Name = "panelMenu";
-            panelMenu.Size = new Size(220, 748);
+            panelMenu.Size = new Size(220, 853);
             panelMenu.TabIndex = 0;
+            // 
+            // btnRegistrar
+            // 
+            btnRegistrar.Dock = DockStyle.Top;
+            btnRegistrar.FlatAppearance.BorderSize = 0;
+            btnRegistrar.FlatStyle = FlatStyle.Flat;
+            btnRegistrar.ForeColor = SystemColors.ButtonFace;
+            btnRegistrar.IconChar = FontAwesome.Sharp.IconChar.CircleUser;
+            btnRegistrar.IconColor = Color.White;
+            btnRegistrar.IconFont = FontAwesome.Sharp.IconFont.Regular;
+            btnRegistrar.IconSize = 35;
+            btnRegistrar.ImageAlign = ContentAlignment.MiddleLeft;
+            btnRegistrar.Location = new Point(0, 380);
+            btnRegistrar.Name = "btnRegistrar";
+            btnRegistrar.Size = new Size(220, 60);
+            btnRegistrar.TabIndex = 5;
+            btnRegistrar.Text = "Registrar Nuevo usuario";
+            btnRegistrar.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnRegistrar.UseVisualStyleBackColor = true;
+            btnRegistrar.Click += btnRegistrar_Click;
             // 
             // btnacercade
             // 
@@ -117,7 +139,7 @@
             btnpagos.IconChar = FontAwesome.Sharp.IconChar.CheckSquare;
             btnpagos.IconColor = Color.White;
             btnpagos.IconFont = FontAwesome.Sharp.IconFont.Regular;
-            btnpagos.IconSize = 40;
+            btnpagos.IconSize = 38;
             btnpagos.ImageAlign = ContentAlignment.MiddleLeft;
             btnpagos.Location = new Point(0, 200);
             btnpagos.Name = "btnpagos";
@@ -179,7 +201,7 @@
             panelTitleBar.Dock = DockStyle.Top;
             panelTitleBar.Location = new Point(220, 0);
             panelTitleBar.Name = "panelTitleBar";
-            panelTitleBar.Size = new Size(954, 75);
+            panelTitleBar.Size = new Size(1012, 75);
             panelTitleBar.TabIndex = 1;
             panelTitleBar.MouseDown += panelTitleBar_MouseDown;
             // 
@@ -192,7 +214,7 @@
             btnClose.IconColor = SystemColors.ButtonHighlight;
             btnClose.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnClose.IconSize = 30;
-            btnClose.Location = new Point(912, 12);
+            btnClose.Location = new Point(970, 12);
             btnClose.Name = "btnClose";
             btnClose.Size = new Size(30, 40);
             btnClose.TabIndex = 4;
@@ -208,7 +230,7 @@
             btnMaximize.IconColor = SystemColors.ButtonHighlight;
             btnMaximize.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnMaximize.IconSize = 28;
-            btnMaximize.Location = new Point(878, 12);
+            btnMaximize.Location = new Point(936, 12);
             btnMaximize.Name = "btnMaximize";
             btnMaximize.Size = new Size(28, 40);
             btnMaximize.TabIndex = 3;
@@ -224,7 +246,7 @@
             btnMinimize.IconColor = SystemColors.ButtonHighlight;
             btnMinimize.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnMinimize.IconSize = 28;
-            btnMinimize.Location = new Point(844, 3);
+            btnMinimize.Location = new Point(902, 3);
             btnMinimize.Name = "btnMinimize";
             btnMinimize.Size = new Size(28, 38);
             btnMinimize.TabIndex = 2;
@@ -261,7 +283,7 @@
             panel2.Dock = DockStyle.Top;
             panel2.Location = new Point(220, 75);
             panel2.Name = "panel2";
-            panel2.Size = new Size(954, 9);
+            panel2.Size = new Size(1012, 9);
             panel2.TabIndex = 2;
             // 
             // panelDesktop
@@ -270,7 +292,7 @@
             panelDesktop.Dock = DockStyle.Fill;
             panelDesktop.Location = new Point(220, 84);
             panelDesktop.Name = "panelDesktop";
-            panelDesktop.Size = new Size(954, 664);
+            panelDesktop.Size = new Size(1012, 769);
             panelDesktop.TabIndex = 3;
             panelDesktop.Paint += panelDesktop_Paint;
             // 
@@ -279,7 +301,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlLight;
-            ClientSize = new Size(1174, 748);
+            ClientSize = new Size(1232, 853);
             Controls.Add(panelDesktop);
             Controls.Add(panel2);
             Controls.Add(panelTitleBar);
@@ -316,5 +338,6 @@
         private FontAwesome.Sharp.IconPictureBox btnClose;
         private FontAwesome.Sharp.IconPictureBox btnMaximize;
         private FontAwesome.Sharp.IconPictureBox btnMinimize;
+        private FontAwesome.Sharp.IconButton btnRegistrar;
     }
 }

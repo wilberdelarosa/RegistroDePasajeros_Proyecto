@@ -28,6 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             TcPasajero = new TabControl();
             tabPagePasajeros = new TabPage();
             panelDtaGrid = new Panel();
@@ -102,13 +105,35 @@
             // 
             // dataGridViewPasajero
             // 
+            dataGridViewCellStyle1.BackColor = SystemColors.ScrollBar;
+            dataGridViewCellStyle1.ForeColor = Color.Black;
+            dataGridViewPasajero.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             dataGridViewPasajero.BackgroundColor = Color.White;
+            dataGridViewPasajero.CellBorderStyle = DataGridViewCellBorderStyle.None;
+            dataGridViewPasajero.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(30, 31, 68);
+            dataGridViewCellStyle2.Font = new Font("Times New Roman", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            dataGridViewPasajero.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dataGridViewPasajero.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = Color.FromArgb(148, 148, 148);
+            dataGridViewCellStyle3.Font = new Font("Trebuchet MS", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = Color.MidnightBlue;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
+            dataGridViewPasajero.DefaultCellStyle = dataGridViewCellStyle3;
             dataGridViewPasajero.Dock = DockStyle.Fill;
+            dataGridViewPasajero.EnableHeadersVisualStyles = false;
             dataGridViewPasajero.Location = new Point(0, 0);
             dataGridViewPasajero.Name = "dataGridViewPasajero";
             dataGridViewPasajero.RowHeadersWidth = 51;
-            dataGridViewPasajero.RowTemplate.Height = 29;
+            dataGridViewPasajero.RowTemplate.Height = 40;
             dataGridViewPasajero.Size = new Size(1285, 681);
             dataGridViewPasajero.TabIndex = 0;
             // 

@@ -31,9 +31,38 @@ namespace Capadepresentacion
             dataGridViewPasajero.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             this.btnEditarPasajero.Click += new EventHandler(this.btnEditarPasajero_Click);
             this.btnEliminarPasajero.Click += new EventHandler(this.btnEliminarPasajero_Click);
+            //  txtBuscarPasajero.TextChanged += new EventHandler(txtBuscarPasajero_TextChanged);
+            dataGridViewPasajero.ReadOnly = true;
 
             MostrarPasajeros();
 
+        }
+
+        private void txtBuscarPasajero_TextChanged(object sender, EventArgs e)
+        {
+            FiltrarPasajeros(txtBuscarPasajero.Text);
+        }
+
+        private void FiltrarPasajeros(string criterio)
+        {
+            // Verifica si el criterio es nulo o está vacío
+            if (string.IsNullOrWhiteSpace(criterio))
+            {
+                MostrarPasajeros();
+            }
+            else
+            {
+                try
+                {
+                    // Filtra los datos utilizando el criterio y actualiza el DataGridView
+                    var resultadosFiltrados = objetoCN.BuscarPasajerosPorNombre(criterio);
+                    dataGridViewPasajero.DataSource = resultadosFiltrados;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error al filtrar los pasajeros: " + ex.Message);
+                }
+            }
         }
 
         private void FormGestionPasajeros_Load(object sender, EventArgs e)
@@ -44,7 +73,7 @@ namespace Capadepresentacion
             LimpiarCampos();
 
         }
-
+      
         #region REFRESCAR DATAGRID
 
         private void MostrarPasajeros()

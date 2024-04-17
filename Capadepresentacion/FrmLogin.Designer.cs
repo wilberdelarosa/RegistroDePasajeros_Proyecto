@@ -38,10 +38,14 @@
             Exit = new PictureBox();
             minimizar = new PictureBox();
             lblMensaje = new Label();
+            iconPictureBoxEye = new FontAwesome.Sharp.IconPictureBox();
+            label1 = new Label();
+            lblcontraseña = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)Exit).BeginInit();
             ((System.ComponentModel.ISupportInitialize)minimizar).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)iconPictureBoxEye).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -67,13 +71,12 @@
             // txtusuario
             // 
             txtusuario.BackColor = Color.FromArgb(15, 15, 15);
-            txtusuario.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            txtusuario.ForeColor = Color.DimGray;
+            txtusuario.Font = new Font("Century Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            txtusuario.ForeColor = Color.White;
             txtusuario.Location = new Point(341, 97);
             txtusuario.Name = "txtusuario";
-            txtusuario.Size = new Size(365, 26);
+            txtusuario.Size = new Size(365, 28);
             txtusuario.TabIndex = 1;
-            txtusuario.Text = "USUARIO";
             txtusuario.Enter += txtusuario_Enter;
             txtusuario.Leave += txtusuario_Leave;
             // 
@@ -82,11 +85,11 @@
             txtpassword.BackColor = Color.FromArgb(15, 15, 15);
             txtpassword.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point);
             txtpassword.ForeColor = Color.DimGray;
-            txtpassword.Location = new Point(341, 149);
+            txtpassword.Location = new Point(341, 173);
             txtpassword.Name = "txtpassword";
             txtpassword.Size = new Size(365, 26);
             txtpassword.TabIndex = 2;
-            txtpassword.Text = "CONTRASEÑA";
+            txtpassword.UseSystemPasswordChar = true;
             txtpassword.Enter += txtpassword_Enter;
             txtpassword.Leave += txtpassword_Leave;
             // 
@@ -99,7 +102,7 @@
             btningresar.FlatStyle = FlatStyle.Flat;
             btningresar.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point);
             btningresar.ForeColor = SystemColors.ControlLight;
-            btningresar.Location = new Point(341, 224);
+            btningresar.Location = new Point(341, 248);
             btningresar.Name = "btningresar";
             btningresar.Size = new Size(365, 30);
             btningresar.TabIndex = 3;
@@ -112,7 +115,7 @@
             lbltitulo.AutoSize = true;
             lbltitulo.Font = new Font("Century Gothic", 16F, FontStyle.Regular, GraphicsUnit.Point);
             lbltitulo.ForeColor = Color.DimGray;
-            lbltitulo.Location = new Point(460, 9);
+            lbltitulo.Location = new Point(460, 6);
             lbltitulo.Name = "lbltitulo";
             lbltitulo.Size = new Size(100, 33);
             lbltitulo.TabIndex = 4;
@@ -127,7 +130,7 @@
             btnregistrar.FlatStyle = FlatStyle.Flat;
             btnregistrar.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point);
             btnregistrar.ForeColor = SystemColors.ControlLight;
-            btnregistrar.Location = new Point(341, 270);
+            btnregistrar.Location = new Point(341, 294);
             btnregistrar.Name = "btnregistrar";
             btnregistrar.Size = new Size(365, 29);
             btnregistrar.TabIndex = 5;
@@ -164,7 +167,7 @@
             lblMensaje.ForeColor = Color.OrangeRed;
             lblMensaje.Image = Properties.Resources.MaterialSymbolsLightErrorOutlineRounded__3_;
             lblMensaje.ImageAlign = ContentAlignment.MiddleLeft;
-            lblMensaje.Location = new Point(341, 189);
+            lblMensaje.Location = new Point(341, 213);
             lblMensaje.Name = "lblMensaje";
             lblMensaje.Size = new Size(138, 16);
             lblMensaje.TabIndex = 8;
@@ -173,12 +176,52 @@
             lblMensaje.Visible = false;
             lblMensaje.Click += lblMensaje_Click;
             // 
+            // iconPictureBoxEye
+            // 
+            iconPictureBoxEye.BackColor = Color.Transparent;
+            iconPictureBoxEye.ForeColor = SystemColors.ButtonHighlight;
+            iconPictureBoxEye.IconChar = FontAwesome.Sharp.IconChar.EyeSlash;
+            iconPictureBoxEye.IconColor = SystemColors.ButtonHighlight;
+            iconPictureBoxEye.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            iconPictureBoxEye.IconSize = 26;
+            iconPictureBoxEye.Location = new Point(712, 173);
+            iconPictureBoxEye.Name = "iconPictureBoxEye";
+            iconPictureBoxEye.Size = new Size(39, 26);
+            iconPictureBoxEye.TabIndex = 9;
+            iconPictureBoxEye.TabStop = false;
+            iconPictureBoxEye.Click += iconPictureBoxEye_Click;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.ForeColor = Color.DimGray;
+            label1.Location = new Point(475, 86);
+            label1.Name = "label1";
+            label1.Size = new Size(76, 20);
+            label1.TabIndex = 10;
+            label1.Text = "USUARIO";
+            // 
+            // lblcontraseña
+            // 
+            lblcontraseña.AutoSize = true;
+            lblcontraseña.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            lblcontraseña.ForeColor = Color.DimGray;
+            lblcontraseña.Location = new Point(460, 162);
+            lblcontraseña.Name = "lblcontraseña";
+            lblcontraseña.Size = new Size(107, 20);
+            lblcontraseña.TabIndex = 11;
+            lblcontraseña.Text = "CONTRASEÑA";
+            // 
             // FrmLogin
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(15, 15, 15);
             ClientSize = new Size(780, 357);
+            Controls.Add(lblcontraseña);
+            Controls.Add(label1);
+            Controls.Add(iconPictureBoxEye);
             Controls.Add(lblMensaje);
             Controls.Add(minimizar);
             Controls.Add(Exit);
@@ -199,6 +242,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)Exit).EndInit();
             ((System.ComponentModel.ISupportInitialize)minimizar).EndInit();
+            ((System.ComponentModel.ISupportInitialize)iconPictureBoxEye).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -215,5 +259,8 @@
         private PictureBox Exit;
         private PictureBox minimizar;
         private Label lblMensaje;
+        private FontAwesome.Sharp.IconPictureBox iconPictureBoxEye;
+        private Label label1;
+        private Label lblcontraseña;
     }
 }

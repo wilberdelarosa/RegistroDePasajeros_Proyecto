@@ -8,7 +8,9 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 using System.Windows.Forms;
+using System.Windows.Media.Media3D;
 using static Capadedatos.Modelo_Pasajeros;
 
 namespace Capadepresentacion
@@ -19,13 +21,14 @@ namespace Capadepresentacion
         CD_Pago datosPago = new CD_Pago();
         CN_Pago negocioPago = new CN_Pago();
 
-        private CN_Pago negocioPasa = new CN_Pago();
+        //private CN_Pago negocioPasa = new CN_Pago();
 
         public FormPagos()
         {
             InitializeComponent();
             this.dataGridViewPagos.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridViewPagos_CellFormatting);
             MostrarPago();
+            txtBuscarPago.KeyUp += new KeyEventHandler(txtBuscarPago_KeyUp);
 
         }
 
@@ -34,11 +37,21 @@ namespace Capadepresentacion
             MostrarPago();
             CargarTiposDeDocumento();
             LlenarComboBoxPasajeros();
+            AdjustDatagridviewHeight();
+        }
+        private void AdjustDatagridviewHeight()
+        {
+            var height = dataGridViewPagos.ColumnHeadersHeight;
+            foreach (DataGridViewRow dr in dataGridViewPagos.Rows)
+            {
+                height += dr.Height;
+            }
 
+            dataGridViewPagos.Height = height;
         }
         #region LLENADO DE DATAGRID
         private void MostrarPago()
-       
+
         {
             //dataGridViewPasajero.DataSource = objetoCN.MostrarProd();
             var listaPago = negocioPago.MostrarDatosPagos();
@@ -58,7 +71,7 @@ namespace Capadepresentacion
         }
         private List<string> tiposDePagos = new List<string>
         {
-          "Tatjeta", // Documento Nacional de Identidad
+          "Tarjeta", // Documento Nacional de Identidad
           "Credito",
          "Transferencia",
 
@@ -228,7 +241,7 @@ namespace Capadepresentacion
         #region METODO VALIDAR CAMPOS
         private bool ValidarDatosFormularioPago()
         {
-            
+
             if (string.IsNullOrWhiteSpace(txtFecha.Text) ||
                 string.IsNullOrWhiteSpace(txtPasajero.Text) ||
                 string.IsNullOrWhiteSpace(txtMonto.Text) ||
@@ -241,7 +254,7 @@ namespace Capadepresentacion
             // Aquí irían más validaciones como la correcta conversión de tipos, rangos, etc.
             return true;
         }
-          #endregion
+        #endregion
 
         #region BOTON AÑADIR
         private void btnAñadirPago_Click(object sender, EventArgs e)
@@ -393,8 +406,28 @@ namespace Capadepresentacion
             {
                 MessageBox.Show("Seleccione un pago para realizar el reembolso .");
             }
-            
+
         }
         #endregion
+
+        private void FormPagos_KeyUp(object sender, KeyEventArgs e)
+        {
+
+
+        }
+
+        private void txtBuscarPago_KeyUp(object sender, KeyEventArgs e)
+        {
+            string SearchValue = txtBuscarPago.Text.Trim().ToLower();
+            if (!string.IsNullOrEmpty(SearchValue))
+            {
+                var listaFiltrada = datosPago.BuscarPagosPorIdONombre(SearchValue);
+                dataGridViewPagos.DataSource = listaFiltrada;
+            }
+            else
+            {
+                MostrarPago(); // Esto restablece la vista si no hay texto de búsqueda
+            }
+        }
     }
 }

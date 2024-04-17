@@ -32,10 +32,27 @@ namespace Capadepresentacion
         public FrmLogin()
         {
             InitializeComponent();
+           InitializeCustomComponents();
+           
 
 
         }
+        private void InitializeCustomComponents()
+        {
+            // Añade aquí la inicialización personalizada de componentes, si es necesario
+            txtpassword.UseSystemPasswordChar = true; // Inicialmente no ocultar la contraseña
+            txtpassword.ForeColor = Color.White; // Establece el color del texto de la contraseña.
 
+        }
+        public void ActivarBotonRegistrar()
+        {
+            btnregistrar.Visible = true;
+            btnregistrar.Enabled = true;
+
+            btningresar.Visible = false;
+            btningresar.Enabled = false;
+
+        }
         private void txtusuario_Enter(object sender, EventArgs e)
         {
             if (txtusuario.Text == "USUARIO")
@@ -50,27 +67,24 @@ namespace Capadepresentacion
         {
             if (txtusuario.Text == "")
             {
-                txtusuario.Text = "USUARIO";
+                txtusuario.Text = "";
                 txtusuario.ForeColor = Color.DimGray;
             }
         }
 
         private void txtpassword_Enter(object sender, EventArgs e)
         {
-            if (txtpassword.Text == "CONTRASEÑA")
-            {
-                txtpassword.Text = "";
-                txtpassword.ForeColor = Color.LightGray;
 
-            }
+            txtpassword.UseSystemPasswordChar = true;
+
         }
 
         private void txtpassword_Leave(object sender, EventArgs e)
         {
-            if (txtpassword.Text == "")
+
+            if (string.IsNullOrWhiteSpace(txtpassword.Text))
             {
-                txtpassword.Text = "CONTRASEÑA";
-                txtpassword.ForeColor = Color.DimGray;
+                txtpassword.UseSystemPasswordChar = false;
             }
         }
 
@@ -86,9 +100,15 @@ namespace Capadepresentacion
 
         private void FrmLogin_Load(object sender, EventArgs e)
         {
-
+            ResetearEstadoBotones();
         }
-
+        public void ResetearEstadoBotones()
+        {
+            // Estado por defecto de los botones cuando el FrmLogin se carga
+            btnregistrar.Visible = false;  // Ocultar el botón registrar al inicio
+            btnregistrar.Enabled = false;  // Deshabilitar el botón registrar al inicio
+            btningresar.Enabled = true;    // Habilitar el botón de ingresar al inicio
+        }
         private void FrmLogin_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
@@ -131,7 +151,7 @@ namespace Capadepresentacion
                 FormMainMenu FormMainMenu = new FormMainMenu();
                 this.Hide(); // Oculta el formulario de login
                 FormMainMenu.ShowDialog();
-                this.Close();
+                //this.Close();
 
 
 
@@ -175,7 +195,7 @@ namespace Capadepresentacion
                 txtpassword.UseSystemPasswordChar = false;
 
 
-               
+
             }
 
             else
@@ -193,6 +213,17 @@ namespace Capadepresentacion
         {
             lblMensaje.Text = "    " + msg;
             lblMensaje.Visible = true;
+        }
+
+        private void iconPictureBoxEye_Click(object sender, EventArgs e)
+        {
+            TogglePasswordVisibility();
+
+        }
+        private void TogglePasswordVisibility()
+        {
+            txtpassword.UseSystemPasswordChar = !txtpassword.UseSystemPasswordChar;
+            iconPictureBoxEye.IconChar = txtpassword.UseSystemPasswordChar ? FontAwesome.Sharp.IconChar.EyeSlash : FontAwesome.Sharp.IconChar.Eye;
         }
     }
 
