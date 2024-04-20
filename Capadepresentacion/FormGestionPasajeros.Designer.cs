@@ -44,8 +44,6 @@
             tabAñadirPasajeros = new TabPage();
             lblTituloFormulario = new Label();
             txtFechaNacimiento = new TextBox();
-            BtnCancelar = new Button();
-            btnGuardar = new Button();
             lblnumerodoc = new Label();
             txtNumeroDocumento = new TextBox();
             lblEmail = new Label();
@@ -62,7 +60,9 @@
             lblNombre = new Label();
             txtNombrePasajero = new TextBox();
             panel1 = new Panel();
+            btnGuardar = new Button();
             panel2 = new Panel();
+            BtnCancelar = new Button();
             TcPasajero.SuspendLayout();
             tabPagePasajeros.SuspendLayout();
             panelDtaGrid.SuspendLayout();
@@ -254,26 +254,6 @@
             txtFechaNacimiento.Size = new Size(313, 27);
             txtFechaNacimiento.TabIndex = 20;
             // 
-            // BtnCancelar
-            // 
-            BtnCancelar.Location = new Point(21, 694);
-            BtnCancelar.Name = "BtnCancelar";
-            BtnCancelar.Size = new Size(113, 41);
-            BtnCancelar.TabIndex = 19;
-            BtnCancelar.Text = "Cancelar";
-            BtnCancelar.UseVisualStyleBackColor = true;
-            BtnCancelar.Click += BtnCancelar_Click;
-            // 
-            // btnGuardar
-            // 
-            btnGuardar.Location = new Point(216, 700);
-            btnGuardar.Name = "btnGuardar";
-            btnGuardar.Size = new Size(113, 41);
-            btnGuardar.TabIndex = 18;
-            btnGuardar.Text = "Guardar";
-            btnGuardar.UseVisualStyleBackColor = true;
-            btnGuardar.Click += btnGuardar_Click;
-            // 
             // lblnumerodoc
             // 
             lblnumerodoc.AutoSize = true;
@@ -409,6 +389,16 @@
             panel1.Size = new Size(365, 860);
             panel1.TabIndex = 22;
             // 
+            // btnGuardar
+            // 
+            btnGuardar.Location = new Point(216, 700);
+            btnGuardar.Name = "btnGuardar";
+            btnGuardar.Size = new Size(113, 41);
+            btnGuardar.TabIndex = 18;
+            btnGuardar.Text = "Guardar";
+            btnGuardar.UseVisualStyleBackColor = true;
+            btnGuardar.Click += btnGuardar_Click;
+            // 
             // panel2
             // 
             panel2.BackColor = Color.FromArgb(26, 25, 62);
@@ -418,6 +408,16 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(365, 860);
             panel2.TabIndex = 23;
+            // 
+            // BtnCancelar
+            // 
+            BtnCancelar.Location = new Point(21, 694);
+            BtnCancelar.Name = "BtnCancelar";
+            BtnCancelar.Size = new Size(113, 41);
+            BtnCancelar.TabIndex = 19;
+            BtnCancelar.Text = "Cancelar";
+            BtnCancelar.UseVisualStyleBackColor = true;
+            BtnCancelar.Click += BtnCancelar_Click;
             // 
             // FormGestionPasajeros
             // 

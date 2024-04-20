@@ -28,6 +28,8 @@ namespace Capadepresentacion
             this.dataGridViewPagos.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridViewPagos_CellFormatting);
             MostrarPago();
             txtBuscarPago.KeyUp += new KeyEventHandler(txtBuscarPago_KeyUp);
+            cbTipoPagos.DropDownStyle = ComboBoxStyle.DropDownList;
+            txtPasajero.DropDownStyle = ComboBoxStyle.DropDownList;
 
         }
 
@@ -103,8 +105,8 @@ namespace Capadepresentacion
                 }
 
                 // Si necesitas configurar el modo de autocompletado
-                txtPasajero.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-                txtPasajero.AutoCompleteSource = AutoCompleteSource.ListItems;
+               // txtPasajero.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+                //txtPasajero.AutoCompleteSource = AutoCompleteSource.ListItems;
 
             }
             catch (Exception ex)
@@ -203,11 +205,7 @@ namespace Capadepresentacion
         }
         #endregion
 
-        private void ConfigurarAutocompletado()
-        {
-            txtPasajero.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-            txtPasajero.AutoCompleteSource = AutoCompleteSource.ListItems;
-        }
+
 
         #region METODO PARA IDENTIFICAR SELECCION
         public void SeleccionarPasajeroEnComboBox(int idPasajero)
@@ -261,7 +259,7 @@ namespace Capadepresentacion
 
             ModoEdicion = false;
             tabControlPago.SelectedTab = tabPageAgregarPagos; ;
-            lblTitulo.Text = "Agregar Pago";
+            //lblTitulo.Text = "Agregar Pago";
             btnGuardar.Text = "Guardar";
 
         }
@@ -413,6 +411,7 @@ namespace Capadepresentacion
 
 
         }
+# region busqueda automatica
 
         private void txtBuscarPago_KeyUp(object sender, KeyEventArgs e)
         {
@@ -426,6 +425,8 @@ namespace Capadepresentacion
             {
                 MostrarPago(); // Esto restablece la vista si no hay texto de búsqueda
             }
+           
         }
+        #endregion
     }
 }

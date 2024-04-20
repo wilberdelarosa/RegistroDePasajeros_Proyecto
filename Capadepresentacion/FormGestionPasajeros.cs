@@ -34,6 +34,8 @@ namespace Capadepresentacion
              txtBuscarPasajero.TextChanged += new EventHandler(txtBuscarPasajero_TextChanged);
             dataGridViewPasajero.ReadOnly = true;
 
+            cmbTipoDocumento.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbPais.DropDownStyle = ComboBoxStyle.DropDownList;
             MostrarPasajeros();
 
         }
@@ -121,6 +123,26 @@ namespace Capadepresentacion
         #endregion
 
         #region BOTON GUARDAR
+
+        private void ValidarCampos()
+        {
+            // Asumiendo que tienes campos como nombre, apellido, etc.
+            if (string.IsNullOrWhiteSpace(txtNombrePasajero.Text) ||
+                string.IsNullOrWhiteSpace(txtApellidoPasajero.Text) ||
+                string.IsNullOrWhiteSpace(txtFechaNacimiento.Text) ||
+                 string.IsNullOrWhiteSpace(txtNumeroDocumento.Text) ||
+                 string.IsNullOrWhiteSpace(cmbTipoDocumento.SelectedItem.ToString()) ||
+
+                  string.IsNullOrWhiteSpace(txtTelefono.Text) ||
+                string.IsNullOrWhiteSpace(txtEmail.Text))
+            {
+                MessageBox.Show("No deje campos vacíos para pasajero.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                // Continuar con el procesamiento o guardado de datos
+            }
+        }
         private Modelo_Pasajeros pasajeroActual;
         private bool esModoEdicion = false;
 
@@ -132,6 +154,7 @@ namespace Capadepresentacion
             try
             {
 
+                ValidarCampos();
 
                 // Si estás en modo de edición, actualiza el pasajero.
                 // De lo contrario, crea un nuevo pasajero.

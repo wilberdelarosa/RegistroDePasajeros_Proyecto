@@ -33,17 +33,16 @@ namespace Capadepresentacion
         {
             InitializeComponent();
             InitializeCustomComponents();
-           
-
+   
 
         }
         private void InitializeCustomComponents()
         {
-            // Añade aquí la inicialización personalizada de componentes, si es necesario
-            txtpassword.UseSystemPasswordChar = true; // Inicialmente no ocultar la contraseña
+            txtpassword.UseSystemPasswordChar = true; // Inicialmente  ocultar la contraseña
             txtpassword.ForeColor = Color.White; // Establece el color del texto de la contraseña.
 
         }
+
         public void ActivarBotonRegistrar()
         {
             btnregistrar.Visible = true;
@@ -53,6 +52,9 @@ namespace Capadepresentacion
             btningresar.Enabled = false;
 
         }
+        
+
+        //Metodo para 
         public void ClearFields()
         {
             this.txtusuario.Text = "";
