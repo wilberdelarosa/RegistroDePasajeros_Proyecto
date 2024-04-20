@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle10 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle11 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle12 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
             panelTitulo = new Panel();
             panel2 = new Panel();
             lblTitulo = new Label();
@@ -137,6 +137,7 @@
             // 
             // cbEstado
             // 
+            cbEstado.DropDownStyle = ComboBoxStyle.DropDownList;
             cbEstado.FormattingEnabled = true;
             cbEstado.Location = new Point(46, 219);
             cbEstado.Name = "cbEstado";
@@ -145,6 +146,7 @@
             // 
             // cbPais
             // 
+            cbPais.DropDownStyle = ComboBoxStyle.DropDownList;
             cbPais.FormattingEnabled = true;
             cbPais.Location = new Point(46, 145);
             cbPais.Name = "cbPais";
@@ -153,6 +155,7 @@
             // 
             // cbTipoPago
             // 
+            cbTipoPago.DropDownStyle = ComboBoxStyle.DropDownList;
             cbTipoPago.FormattingEnabled = true;
             cbTipoPago.Location = new Point(46, 309);
             cbTipoPago.Name = "cbTipoPago";
@@ -249,29 +252,29 @@
             // 
             // dataGridViewPagos
             // 
-            dataGridViewCellStyle7.BackColor = SystemColors.ScrollBar;
-            dataGridViewCellStyle7.ForeColor = Color.Black;
-            dataGridViewPagos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.BackColor = SystemColors.ScrollBar;
+            dataGridViewCellStyle1.ForeColor = Color.Black;
+            dataGridViewPagos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             dataGridViewPagos.BackgroundColor = SystemColors.ButtonFace;
             dataGridViewPagos.CellBorderStyle = DataGridViewCellBorderStyle.None;
             dataGridViewPagos.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = Color.FromArgb(30, 31, 68);
-            dataGridViewCellStyle8.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle8.ForeColor = Color.White;
-            dataGridViewCellStyle8.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = DataGridViewTriState.True;
-            dataGridViewPagos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(30, 31, 68);
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            dataGridViewPagos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dataGridViewPagos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle9.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = Color.FromArgb(148, 148, 148);
-            dataGridViewCellStyle9.Font = new Font("Trebuchet MS", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            dataGridViewCellStyle9.ForeColor = Color.MidnightBlue;
-            dataGridViewCellStyle9.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = DataGridViewTriState.False;
-            dataGridViewPagos.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = Color.FromArgb(148, 148, 148);
+            dataGridViewCellStyle3.Font = new Font("Trebuchet MS", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = Color.MidnightBlue;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
+            dataGridViewPagos.DefaultCellStyle = dataGridViewCellStyle3;
             dataGridViewPagos.EnableHeadersVisualStyles = false;
             dataGridViewPagos.Location = new Point(6, 485);
             dataGridViewPagos.Name = "dataGridViewPagos";
@@ -282,29 +285,29 @@
             // 
             // dataGridViewPasajeros
             // 
-            dataGridViewCellStyle10.BackColor = SystemColors.ScrollBar;
-            dataGridViewCellStyle10.ForeColor = Color.Black;
-            dataGridViewPasajeros.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle4.BackColor = SystemColors.ScrollBar;
+            dataGridViewCellStyle4.ForeColor = Color.Black;
+            dataGridViewPasajeros.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             dataGridViewPasajeros.BackgroundColor = SystemColors.ButtonFace;
             dataGridViewPasajeros.CellBorderStyle = DataGridViewCellBorderStyle.None;
             dataGridViewPasajeros.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle11.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = Color.FromArgb(30, 31, 68);
-            dataGridViewCellStyle11.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            dataGridViewCellStyle11.ForeColor = Color.White;
-            dataGridViewCellStyle11.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = DataGridViewTriState.True;
-            dataGridViewPasajeros.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = Color.FromArgb(30, 31, 68);
+            dataGridViewCellStyle5.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            dataGridViewCellStyle5.ForeColor = Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
+            dataGridViewPasajeros.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             dataGridViewPasajeros.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle12.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = Color.FromArgb(148, 148, 148);
-            dataGridViewCellStyle12.Font = new Font("Trebuchet MS", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            dataGridViewCellStyle12.ForeColor = Color.MidnightBlue;
-            dataGridViewCellStyle12.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle12.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = DataGridViewTriState.False;
-            dataGridViewPasajeros.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = Color.FromArgb(148, 148, 148);
+            dataGridViewCellStyle6.Font = new Font("Trebuchet MS", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+            dataGridViewCellStyle6.ForeColor = Color.MidnightBlue;
+            dataGridViewCellStyle6.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.False;
+            dataGridViewPasajeros.DefaultCellStyle = dataGridViewCellStyle6;
             dataGridViewPasajeros.Dock = DockStyle.Top;
             dataGridViewPasajeros.EnableHeadersVisualStyles = false;
             dataGridViewPasajeros.Location = new Point(0, 0);

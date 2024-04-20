@@ -316,7 +316,7 @@ namespace Capadepresentacion
                         ModoEdicion = true; // Establece el formulario en modo de edición
                         pagoActual = pagoAEditar; // Guarda el pasajero actual para actualizar
                         tabControlPago.SelectedTab = tabPageAgregarPagos; // Cambia a la pestaña de edición
-                        lblTitulo.Text = "Editar Pasajero";
+                        //lblTitulo.Text = "Editar Pasajero";
                         btnGuardar.Text = "Actualizar";
 
                     }
