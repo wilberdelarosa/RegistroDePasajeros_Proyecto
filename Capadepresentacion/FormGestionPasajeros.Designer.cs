@@ -61,12 +61,16 @@
             txtTelefono = new TextBox();
             lblNombre = new Label();
             txtNombrePasajero = new TextBox();
+            panel1 = new Panel();
+            panel2 = new Panel();
             TcPasajero.SuspendLayout();
             tabPagePasajeros.SuspendLayout();
             panelDtaGrid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewPasajero).BeginInit();
             panelBotones.SuspendLayout();
             tabAñadirPasajeros.SuspendLayout();
+            panel1.SuspendLayout();
+            panel2.SuspendLayout();
             SuspendLayout();
             // 
             // TcPasajero
@@ -208,8 +212,6 @@
             // 
             tabAñadirPasajeros.Controls.Add(lblTituloFormulario);
             tabAñadirPasajeros.Controls.Add(txtFechaNacimiento);
-            tabAñadirPasajeros.Controls.Add(BtnCancelar);
-            tabAñadirPasajeros.Controls.Add(btnGuardar);
             tabAñadirPasajeros.Controls.Add(lblnumerodoc);
             tabAñadirPasajeros.Controls.Add(txtNumeroDocumento);
             tabAñadirPasajeros.Controls.Add(lblEmail);
@@ -225,6 +227,8 @@
             tabAñadirPasajeros.Controls.Add(txtTelefono);
             tabAñadirPasajeros.Controls.Add(lblNombre);
             tabAñadirPasajeros.Controls.Add(txtNombrePasajero);
+            tabAñadirPasajeros.Controls.Add(panel1);
+            tabAñadirPasajeros.Controls.Add(panel2);
             tabAñadirPasajeros.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             tabAñadirPasajeros.Location = new Point(4, 29);
             tabAñadirPasajeros.Name = "tabAñadirPasajeros";
@@ -237,24 +241,24 @@
             // lblTituloFormulario
             // 
             lblTituloFormulario.AutoSize = true;
-            lblTituloFormulario.Location = new Point(389, 22);
+            lblTituloFormulario.Location = new Point(510, 28);
             lblTituloFormulario.Name = "lblTituloFormulario";
-            lblTituloFormulario.Size = new Size(71, 20);
+            lblTituloFormulario.Size = new Size(136, 20);
             lblTituloFormulario.TabIndex = 21;
-            lblTituloFormulario.Text = "Nombre ";
+            lblTituloFormulario.Text = "Agregar pasajeros";
             // 
             // txtFechaNacimiento
             // 
-            txtFechaNacimiento.Location = new Point(701, 260);
+            txtFechaNacimiento.Location = new Point(673, 430);
             txtFechaNacimiento.Name = "txtFechaNacimiento";
-            txtFechaNacimiento.Size = new Size(250, 27);
+            txtFechaNacimiento.Size = new Size(313, 27);
             txtFechaNacimiento.TabIndex = 20;
             // 
             // BtnCancelar
             // 
-            BtnCancelar.Location = new Point(552, 374);
+            BtnCancelar.Location = new Point(21, 694);
             BtnCancelar.Name = "BtnCancelar";
-            BtnCancelar.Size = new Size(94, 29);
+            BtnCancelar.Size = new Size(113, 41);
             BtnCancelar.TabIndex = 19;
             BtnCancelar.Text = "Cancelar";
             BtnCancelar.UseVisualStyleBackColor = true;
@@ -262,9 +266,9 @@
             // 
             // btnGuardar
             // 
-            btnGuardar.Location = new Point(339, 374);
+            btnGuardar.Location = new Point(216, 700);
             btnGuardar.Name = "btnGuardar";
-            btnGuardar.Size = new Size(94, 29);
+            btnGuardar.Size = new Size(113, 41);
             btnGuardar.TabIndex = 18;
             btnGuardar.Text = "Guardar";
             btnGuardar.UseVisualStyleBackColor = true;
@@ -273,7 +277,7 @@
             // lblnumerodoc
             // 
             lblnumerodoc.AutoSize = true;
-            lblnumerodoc.Location = new Point(46, 263);
+            lblnumerodoc.Location = new Point(230, 397);
             lblnumerodoc.Name = "lblnumerodoc";
             lblnumerodoc.Size = new Size(174, 20);
             lblnumerodoc.TabIndex = 17;
@@ -281,15 +285,16 @@
             // 
             // txtNumeroDocumento
             // 
-            txtNumeroDocumento.Location = new Point(241, 260);
+            txtNumeroDocumento.Location = new Point(172, 430);
             txtNumeroDocumento.Name = "txtNumeroDocumento";
-            txtNumeroDocumento.Size = new Size(250, 27);
+            txtNumeroDocumento.Size = new Size(286, 27);
             txtNumeroDocumento.TabIndex = 16;
             // 
             // lblEmail
             // 
             lblEmail.AutoSize = true;
-            lblEmail.Location = new Point(552, 91);
+            lblEmail.ForeColor = SystemColors.ActiveCaptionText;
+            lblEmail.Location = new Point(793, 136);
             lblEmail.Name = "lblEmail";
             lblEmail.Size = new Size(47, 20);
             lblEmail.TabIndex = 13;
@@ -297,23 +302,23 @@
             // 
             // txtEmail
             // 
-            txtEmail.Location = new Point(609, 91);
+            txtEmail.Location = new Point(673, 169);
             txtEmail.Name = "txtEmail";
-            txtEmail.Size = new Size(284, 27);
+            txtEmail.Size = new Size(313, 27);
             txtEmail.TabIndex = 12;
             // 
             // cmbTipoDocumento
             // 
             cmbTipoDocumento.FormattingEnabled = true;
-            cmbTipoDocumento.Location = new Point(205, 201);
+            cmbTipoDocumento.Location = new Point(172, 339);
             cmbTipoDocumento.Name = "cmbTipoDocumento";
-            cmbTipoDocumento.Size = new Size(183, 28);
+            cmbTipoDocumento.Size = new Size(286, 28);
             cmbTipoDocumento.TabIndex = 11;
             // 
             // lblFechaNacimiento
             // 
             lblFechaNacimiento.AutoSize = true;
-            lblFechaNacimiento.Location = new Point(540, 265);
+            lblFechaNacimiento.Location = new Point(751, 397);
             lblFechaNacimiento.Name = "lblFechaNacimiento";
             lblFechaNacimiento.Size = new Size(155, 20);
             lblFechaNacimiento.TabIndex = 10;
@@ -322,7 +327,7 @@
             // lbltipodoc
             // 
             lbltipodoc.AutoSize = true;
-            lbltipodoc.Location = new Point(52, 204);
+            lbltipodoc.Location = new Point(230, 305);
             lbltipodoc.Name = "lbltipodoc";
             lbltipodoc.Size = new Size(147, 20);
             lbltipodoc.TabIndex = 9;
@@ -331,7 +336,7 @@
             // lblApellido
             // 
             lblApellido.AutoSize = true;
-            lblApellido.Location = new Point(61, 147);
+            lblApellido.Location = new Point(267, 225);
             lblApellido.Name = "lblApellido";
             lblApellido.Size = new Size(71, 20);
             lblApellido.TabIndex = 7;
@@ -339,23 +344,23 @@
             // 
             // txtApellidoPasajero
             // 
-            txtApellidoPasajero.Location = new Point(138, 147);
+            txtApellidoPasajero.Location = new Point(172, 248);
             txtApellidoPasajero.Name = "txtApellidoPasajero";
-            txtApellidoPasajero.Size = new Size(250, 27);
+            txtApellidoPasajero.Size = new Size(286, 27);
             txtApellidoPasajero.TabIndex = 6;
             // 
             // cmbPais
             // 
             cmbPais.FormattingEnabled = true;
-            cmbPais.Location = new Point(609, 147);
+            cmbPais.Location = new Point(673, 264);
             cmbPais.Name = "cmbPais";
-            cmbPais.Size = new Size(284, 28);
+            cmbPais.Size = new Size(313, 28);
             cmbPais.TabIndex = 5;
             // 
             // lblPais
             // 
             lblPais.AutoSize = true;
-            lblPais.Location = new Point(552, 147);
+            lblPais.Location = new Point(803, 225);
             lblPais.Name = "lblPais";
             lblPais.Size = new Size(37, 20);
             lblPais.TabIndex = 4;
@@ -364,7 +369,7 @@
             // lblTelefono
             // 
             lblTelefono.AutoSize = true;
-            lblTelefono.Location = new Point(540, 204);
+            lblTelefono.Location = new Point(793, 305);
             lblTelefono.Name = "lblTelefono";
             lblTelefono.Size = new Size(70, 20);
             lblTelefono.TabIndex = 3;
@@ -372,15 +377,16 @@
             // 
             // txtTelefono
             // 
-            txtTelefono.Location = new Point(643, 197);
+            txtTelefono.Location = new Point(673, 340);
             txtTelefono.Name = "txtTelefono";
-            txtTelefono.Size = new Size(250, 27);
+            txtTelefono.Size = new Size(313, 27);
             txtTelefono.TabIndex = 2;
             // 
             // lblNombre
             // 
             lblNombre.AutoSize = true;
-            lblNombre.Location = new Point(61, 91);
+            lblNombre.BackColor = Color.White;
+            lblNombre.Location = new Point(267, 136);
             lblNombre.Name = "lblNombre";
             lblNombre.Size = new Size(71, 20);
             lblNombre.TabIndex = 1;
@@ -388,10 +394,30 @@
             // 
             // txtNombrePasajero
             // 
-            txtNombrePasajero.Location = new Point(138, 88);
+            txtNombrePasajero.Location = new Point(172, 169);
             txtNombrePasajero.Name = "txtNombrePasajero";
-            txtNombrePasajero.Size = new Size(250, 27);
+            txtNombrePasajero.Size = new Size(286, 27);
             txtNombrePasajero.TabIndex = 0;
+            // 
+            // panel1
+            // 
+            panel1.BackColor = Color.FromArgb(26, 25, 62);
+            panel1.Controls.Add(btnGuardar);
+            panel1.ForeColor = Color.FromArgb(0, 0, 64);
+            panel1.Location = new Point(139, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(365, 860);
+            panel1.TabIndex = 22;
+            // 
+            // panel2
+            // 
+            panel2.BackColor = Color.FromArgb(26, 25, 62);
+            panel2.Controls.Add(BtnCancelar);
+            panel2.ForeColor = Color.FromArgb(0, 0, 64);
+            panel2.Location = new Point(652, 6);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(365, 860);
+            panel2.TabIndex = 23;
             // 
             // FormGestionPasajeros
             // 
@@ -410,6 +436,8 @@
             panelBotones.PerformLayout();
             tabAñadirPasajeros.ResumeLayout(false);
             tabAñadirPasajeros.PerformLayout();
+            panel1.ResumeLayout(false);
+            panel2.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -445,5 +473,7 @@
         private Panel panelDtaGrid;
         private Panel panelBotones;
         private Label lblTituloFormulario;
+        private Panel panel1;
+        private Panel panel2;
     }
 }

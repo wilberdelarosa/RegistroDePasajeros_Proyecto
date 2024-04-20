@@ -99,7 +99,8 @@ namespace Capadepresentacion
                 p.Monto,
                 p.Impuesto,
                 p.Total,
-                p.Estado
+                p.Estado,
+                EstadoActivo = p.IsActive ? "Activo" : "Inactivo"
 
             }).ToList();
 
@@ -114,7 +115,9 @@ namespace Capadepresentacion
                 p.Fecha_nacimiento,
                 p.Telefono,
                 p.Email,
-                p.Pais // Asegúrate de que este campo esté incluido en tu modelo y sea el nombre correcto.
+                p.Pais, // Asegúrate de que este campo esté incluido en tu modelo y sea el nombre correcto.
+                EstadoActivo = p.IsActive ? "Activo" : "Inactivo"
+
             }).ToList();
 
           
@@ -154,8 +157,7 @@ namespace Capadepresentacion
                 CN_Pago cnPago = new CN_Pago();
                 List<ModeloConsultaAvanzada> resultados = cnPago.BuscarPagosAvanzados(idPasajero, nombre, tipoPago, estado, pais);
 
-                // Asignar los resultados a los DataGrids. Asumiendo que tienes dos DataGrids:
-                // Uno para pagos y otro para detalles del pasajero
+             
                 dataGridViewPagos.DataSource = resultados.Select(p => new
                 {
                     p.Idpago,
@@ -219,7 +221,9 @@ namespace Capadepresentacion
                 p.Num_documento,
                 p.Fecha_nacimiento,
                 p.Telefono,
-                p.Email
+                p.Email,
+                EstadoActivo = p.IsActive ? "Activo" : "Inactivo"
+
             }).ToList();
         }
 

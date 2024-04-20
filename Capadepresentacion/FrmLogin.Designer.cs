@@ -236,6 +236,7 @@
             Opacity = 0.9D;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "LOGIN";
+            FormClosing += FrmLogin_FormClosing;
             Load += FrmLogin_Load;
             MouseDown += FrmLogin_MouseDown;
             panel1.ResumeLayout(false);

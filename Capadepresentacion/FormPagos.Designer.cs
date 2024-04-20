@@ -42,10 +42,10 @@
             btnBuscar = new Button();
             tabPageAgregarPagos = new TabPage();
             panel4 = new Panel();
+            panel3 = new Panel();
             btnGuardar = new Button();
             txtFecha = new TextBox();
             btnCancelar = new Button();
-            lblTitulo = new Label();
             label3 = new Label();
             txtPasajero = new ComboBox();
             label5 = new Label();
@@ -57,14 +57,15 @@
             label6 = new Label();
             txtTotal = new TextBox();
             label2 = new Label();
-            panel3 = new Panel();
             panel2 = new Panel();
+            panel5 = new Panel();
             tabControlPago.SuspendLayout();
             tabPagepagos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewPagos).BeginInit();
             panel1.SuspendLayout();
             tabPageAgregarPagos.SuspendLayout();
             panel4.SuspendLayout();
+            panel2.SuspendLayout();
             SuspendLayout();
             // 
             // tabControlPago
@@ -75,7 +76,7 @@
             tabControlPago.Location = new Point(0, 0);
             tabControlPago.Name = "tabControlPago";
             tabControlPago.SelectedIndex = 0;
-            tabControlPago.Size = new Size(1461, 853);
+            tabControlPago.Size = new Size(1341, 853);
             tabControlPago.TabIndex = 0;
             // 
             // tabPagepagos
@@ -85,7 +86,7 @@
             tabPagepagos.Location = new Point(4, 26);
             tabPagepagos.Name = "tabPagepagos";
             tabPagepagos.Padding = new Padding(3);
-            tabPagepagos.Size = new Size(1453, 752);
+            tabPagepagos.Size = new Size(1333, 823);
             tabPagepagos.TabIndex = 0;
             tabPagepagos.Text = "Pagos";
             tabPagepagos.UseVisualStyleBackColor = true;
@@ -119,9 +120,10 @@
             dataGridViewPagos.EnableHeadersVisualStyles = false;
             dataGridViewPagos.Location = new Point(3, 136);
             dataGridViewPagos.Name = "dataGridViewPagos";
+            dataGridViewPagos.ReadOnly = true;
             dataGridViewPagos.RowHeadersWidth = 51;
             dataGridViewPagos.RowTemplate.Height = 29;
-            dataGridViewPagos.Size = new Size(1447, 613);
+            dataGridViewPagos.Size = new Size(1327, 684);
             dataGridViewPagos.TabIndex = 1;
             // 
             // panel1
@@ -134,7 +136,7 @@
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(3, 3);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1447, 133);
+            panel1.Size = new Size(1327, 133);
             panel1.TabIndex = 0;
             // 
             // txtBuscarPago
@@ -189,23 +191,23 @@
             // 
             tabPageAgregarPagos.BackColor = Color.White;
             tabPageAgregarPagos.Controls.Add(panel4);
-            tabPageAgregarPagos.Controls.Add(panel3);
             tabPageAgregarPagos.Controls.Add(panel2);
             tabPageAgregarPagos.Font = new Font("Trebuchet MS", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
             tabPageAgregarPagos.ForeColor = Color.Black;
             tabPageAgregarPagos.Location = new Point(4, 26);
             tabPageAgregarPagos.Name = "tabPageAgregarPagos";
             tabPageAgregarPagos.Padding = new Padding(3);
-            tabPageAgregarPagos.Size = new Size(1453, 823);
+            tabPageAgregarPagos.Size = new Size(1333, 823);
             tabPageAgregarPagos.TabIndex = 1;
             tabPageAgregarPagos.Text = "Agregar Pagos";
             // 
             // panel4
             // 
+            panel4.BackColor = Color.FromArgb(26, 25, 62);
+            panel4.Controls.Add(panel3);
             panel4.Controls.Add(btnGuardar);
             panel4.Controls.Add(txtFecha);
             panel4.Controls.Add(btnCancelar);
-            panel4.Controls.Add(lblTitulo);
             panel4.Controls.Add(label3);
             panel4.Controls.Add(txtPasajero);
             panel4.Controls.Add(label5);
@@ -220,16 +222,25 @@
             panel4.Dock = DockStyle.Fill;
             panel4.Location = new Point(253, 3);
             panel4.Name = "panel4";
-            panel4.Size = new Size(868, 817);
+            panel4.Size = new Size(1077, 817);
             panel4.TabIndex = 19;
+            // 
+            // panel3
+            // 
+            panel3.BackColor = Color.White;
+            panel3.Dock = DockStyle.Right;
+            panel3.Location = new Point(919, 0);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(158, 817);
+            panel3.TabIndex = 17;
             // 
             // btnGuardar
             // 
             btnGuardar.BackColor = Color.FromArgb(57, 163, 105);
             btnGuardar.ForeColor = Color.Black;
-            btnGuardar.Location = new Point(286, 584);
+            btnGuardar.Location = new Point(178, 530);
             btnGuardar.Name = "btnGuardar";
-            btnGuardar.Size = new Size(149, 36);
+            btnGuardar.Size = new Size(168, 36);
             btnGuardar.TabIndex = 14;
             btnGuardar.Text = "Guardar";
             btnGuardar.UseVisualStyleBackColor = false;
@@ -237,38 +248,27 @@
             // 
             // txtFecha
             // 
-            txtFecha.Location = new Point(286, 123);
+            txtFecha.Location = new Point(178, 69);
             txtFecha.Name = "txtFecha";
-            txtFecha.Size = new Size(339, 28);
+            txtFecha.Size = new Size(358, 28);
             txtFecha.TabIndex = 0;
             // 
             // btnCancelar
             // 
-            btnCancelar.Location = new Point(504, 584);
+            btnCancelar.Location = new Point(396, 530);
             btnCancelar.Name = "btnCancelar";
-            btnCancelar.Size = new Size(121, 36);
+            btnCancelar.Size = new Size(140, 36);
             btnCancelar.TabIndex = 15;
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = true;
             btnCancelar.Click += btnCancelar_Click;
             // 
-            // lblTitulo
-            // 
-            lblTitulo.AutoSize = true;
-            lblTitulo.Font = new Font("Trebuchet MS", 18F, FontStyle.Bold, GraphicsUnit.Point);
-            lblTitulo.ForeColor = Color.FromArgb(26, 25, 62);
-            lblTitulo.Location = new Point(314, 30);
-            lblTitulo.Name = "lblTitulo";
-            lblTitulo.Size = new Size(251, 38);
-            lblTitulo.TabIndex = 2;
-            lblTitulo.Text = "AGREGAR PAGOS";
-            // 
             // label3
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Trebuchet MS", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
-            label3.ForeColor = Color.Black;
-            label3.Location = new Point(157, 201);
+            label3.ForeColor = Color.White;
+            label3.Location = new Point(49, 147);
             label3.Name = "label3";
             label3.Size = new Size(95, 23);
             label3.TabIndex = 4;
@@ -277,9 +277,9 @@
             // txtPasajero
             // 
             txtPasajero.FormattingEnabled = true;
-            txtPasajero.Location = new Point(286, 196);
+            txtPasajero.Location = new Point(178, 142);
             txtPasajero.Name = "txtPasajero";
-            txtPasajero.Size = new Size(339, 31);
+            txtPasajero.Size = new Size(358, 31);
             txtPasajero.TabIndex = 16;
             txtPasajero.SelectedIndexChanged += txtPasajero_SelectedIndexChanged;
             // 
@@ -287,8 +287,8 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Trebuchet MS", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
-            label5.ForeColor = Color.Black;
-            label5.Location = new Point(158, 276);
+            label5.ForeColor = Color.White;
+            label5.Location = new Point(50, 222);
             label5.Name = "label5";
             label5.Size = new Size(73, 23);
             label5.TabIndex = 7;
@@ -296,17 +296,17 @@
             // 
             // txtMonto
             // 
-            txtMonto.Location = new Point(286, 268);
+            txtMonto.Location = new Point(178, 214);
             txtMonto.Name = "txtMonto";
-            txtMonto.Size = new Size(339, 28);
+            txtMonto.Size = new Size(358, 28);
             txtMonto.TabIndex = 5;
             // 
             // label4
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Times New Roman", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
-            label4.ForeColor = Color.Black;
-            label4.Location = new Point(152, 348);
+            label4.ForeColor = Color.White;
+            label4.Location = new Point(44, 294);
             label4.Name = "label4";
             label4.Size = new Size(111, 20);
             label4.TabIndex = 8;
@@ -315,16 +315,16 @@
             // cbTipoPagos
             // 
             cbTipoPagos.FormattingEnabled = true;
-            cbTipoPagos.Location = new Point(286, 338);
+            cbTipoPagos.Location = new Point(178, 284);
             cbTipoPagos.Name = "cbTipoPagos";
-            cbTipoPagos.Size = new Size(339, 31);
+            cbTipoPagos.Size = new Size(358, 31);
             cbTipoPagos.TabIndex = 13;
             // 
             // label7
             // 
             label7.AutoSize = true;
-            label7.ForeColor = Color.Black;
-            label7.Location = new Point(152, 420);
+            label7.ForeColor = Color.White;
+            label7.Location = new Point(44, 366);
             label7.Name = "label7";
             label7.Size = new Size(86, 23);
             label7.TabIndex = 11;
@@ -332,16 +332,18 @@
             // 
             // txtImpuesto
             // 
-            txtImpuesto.Location = new Point(286, 412);
+            txtImpuesto.BackColor = SystemColors.ActiveBorder;
+            txtImpuesto.Location = new Point(178, 358);
             txtImpuesto.Name = "txtImpuesto";
-            txtImpuesto.Size = new Size(339, 28);
+            txtImpuesto.ReadOnly = true;
+            txtImpuesto.Size = new Size(358, 28);
             txtImpuesto.TabIndex = 9;
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.ForeColor = Color.Black;
-            label6.Location = new Point(152, 488);
+            label6.ForeColor = Color.White;
+            label6.Location = new Point(44, 434);
             label6.Name = "label6";
             label6.Size = new Size(51, 23);
             label6.TabIndex = 12;
@@ -349,45 +351,48 @@
             // 
             // txtTotal
             // 
-            txtTotal.Location = new Point(286, 478);
+            txtTotal.BackColor = SystemColors.ActiveBorder;
+            txtTotal.Location = new Point(178, 424);
             txtTotal.Name = "txtTotal";
-            txtTotal.Size = new Size(339, 28);
+            txtTotal.ReadOnly = true;
+            txtTotal.Size = new Size(358, 28);
             txtTotal.TabIndex = 10;
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Trebuchet MS", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.ForeColor = Color.Black;
-            label2.Location = new Point(158, 128);
+            label2.ForeColor = Color.White;
+            label2.Location = new Point(50, 74);
             label2.Name = "label2";
             label2.Size = new Size(72, 23);
             label2.TabIndex = 3;
             label2.Text = "Fecha :";
             // 
-            // panel3
-            // 
-            panel3.BackColor = Color.FromArgb(26, 25, 62);
-            panel3.Dock = DockStyle.Right;
-            panel3.Location = new Point(1121, 3);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(329, 817);
-            panel3.TabIndex = 18;
-            // 
             // panel2
             // 
-            panel2.BackColor = Color.FromArgb(26, 25, 62);
+            panel2.BackColor = Color.White;
+            panel2.Controls.Add(panel5);
             panel2.Dock = DockStyle.Left;
             panel2.Location = new Point(3, 3);
             panel2.Name = "panel2";
             panel2.Size = new Size(250, 817);
             panel2.TabIndex = 17;
             // 
+            // panel5
+            // 
+            panel5.BackColor = Color.White;
+            panel5.Dock = DockStyle.Right;
+            panel5.Location = new Point(0, 0);
+            panel5.Name = "panel5";
+            panel5.Size = new Size(250, 817);
+            panel5.TabIndex = 18;
+            // 
             // FormPagos
             // 
             AutoScaleDimensions = new SizeF(9F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1461, 853);
+            ClientSize = new Size(1341, 853);
             Controls.Add(tabControlPago);
             Font = new Font("Times New Roman", 9F, FontStyle.Bold, GraphicsUnit.Point);
             ForeColor = Color.MidnightBlue;
@@ -403,6 +408,7 @@
             tabPageAgregarPagos.ResumeLayout(false);
             panel4.ResumeLayout(false);
             panel4.PerformLayout();
+            panel2.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -436,5 +442,6 @@
         private Panel panel2;
         private Panel panel3;
         private Panel panel4;
+        private Panel panel5;
     }
 }

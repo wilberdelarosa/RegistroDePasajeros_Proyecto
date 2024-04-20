@@ -59,12 +59,12 @@ namespace capadenegocio
         #region ELIMINAR PASAJERO
 
         // Elimina un pasajero por su ID
-        public void EliminarPasajero(int idPasajero)
+        public void  EliminarPasajero(int idPasajero)
         {
             // Aquí podrías agregar validaciones adicionales si es necesario
-            if (idPasajero <= 0)
-                throw new ArgumentException("El ID proporcionado no es válido.");
-            
+            //if (idPasajero <= 0)
+              //  throw new ArgumentException("El ID proporcionado no es válido.");
+
 
             cdPasajeros.DeletePasajero(idPasajero);
         }

@@ -339,6 +339,8 @@ namespace Capadedatos
                             Impuesto = reader.GetDecimal(reader.GetOrdinal("impuesto")),
                             Total = reader.GetDecimal(reader.GetOrdinal("total")),
                             Estado = reader.IsDBNull(reader.GetOrdinal("estado")) ? null : reader.GetString(reader.GetOrdinal("estado")),
+                            IsActive = reader.GetBoolean(reader.GetOrdinal("IsActive")),
+
                         };
                         listaResultados.Add(resultado);
                     }

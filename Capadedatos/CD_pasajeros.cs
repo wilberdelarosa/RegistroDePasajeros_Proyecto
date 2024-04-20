@@ -26,7 +26,7 @@ namespace Capadedatos
             comando.Connection = conexion.AbrirConexion();
             tabla.Clear();
 
-            comando.CommandText = "select * from pasajeros";
+            comando.CommandText = "SELECT * FROM pasajeros WHERE IsActive = 1";
             SqlDataReader leer = comando.ExecuteReader();
             tabla.Load(leer);
             conexion.CerrarConexion();
@@ -136,37 +136,40 @@ namespace Capadedatos
         }
         #endregion
 
-
         #region METODO PARA ELIMINAR PASAJEROS
         // Método para eliminar un pasajero
-        public void DeletePasajero(int id)
+
+        public void DeletePasajero(int idPasajero)
         {
-            try
-            {
-                using (var conexion = new CD_Conexion().ObtenerConexion())
+           
+
+            
+                try
                 {
-                    conexion.Open();
-                    using (var cmd = new SqlCommand("spEliminarPasajero", conexion))
+                    using (var conexion = new CD_Conexion().ObtenerConexion())
                     {
-                        cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.AddWithValue("@idpasajero", id);
-                        cmd.ExecuteNonQuery();
+                        conexion.Open();
+                        using (var cmd = new SqlCommand("spEliminarPasajero", conexion))
+                        {
+                            cmd.CommandType = CommandType.StoredProcedure;
+                            cmd.Parameters.AddWithValue("@idpasajero", idPasajero);
+                            cmd.ExecuteNonQuery();
+                        }
                     }
                 }
-            }
-            catch (Exception ex)
-            {
-                // Manejo de excepciones
-                System.Diagnostics.Debug.WriteLine("ELIMINAR - SQL Error: " + ex.Message);
-            }
+                catch (Exception ex)
+                {
+                    // Manejo de excepciones
+                    System.Diagnostics.Debug.WriteLine("ELIMINAR - SQL Error: " + ex.Message);
+                }
         }
+            
+            #endregion
 
-        #endregion
 
 
-
-        #region METODO BUSCAR PASAJEROS
-        public DataTable BuscarPasajerosPorNombre(string nombre)
+            #region METODO BUSCAR PASAJEROS
+            public DataTable BuscarPasajerosPorNombre(string nombre)
         {
             DataTable dataTable = new DataTable();
             using (SqlCommand cmd = new SqlCommand("spBuscarPasajerosPorNombre", conexion.Conexion))

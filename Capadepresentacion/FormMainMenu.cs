@@ -205,9 +205,11 @@ namespace Capadepresentacion
             // Activamos el botón de registro
             loginForm.ActivarBotonRegistrar();
             //loginForm.txtpassword.Clear;
+            loginForm.ClearFields();
 
             // Mostramos el formulario de login
             loginForm.Show();
         }
     }
 }
+

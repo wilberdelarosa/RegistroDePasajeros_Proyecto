@@ -45,6 +45,7 @@
             iconCurrentChildForm = new FontAwesome.Sharp.IconPictureBox();
             panel2 = new Panel();
             panelDesktop = new Panel();
+            pictureBox2 = new PictureBox();
             panelMenu.SuspendLayout();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -53,6 +54,8 @@
             ((System.ComponentModel.ISupportInitialize)btnMaximize).BeginInit();
             ((System.ComponentModel.ISupportInitialize)btnMinimize).BeginInit();
             ((System.ComponentModel.ISupportInitialize)iconCurrentChildForm).BeginInit();
+            panelDesktop.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
             // panelMenu
@@ -289,12 +292,23 @@
             // panelDesktop
             // 
             panelDesktop.BackColor = Color.FromArgb(34, 33, 74);
+            panelDesktop.Controls.Add(pictureBox2);
             panelDesktop.Dock = DockStyle.Fill;
             panelDesktop.Location = new Point(220, 84);
             panelDesktop.Name = "panelDesktop";
             panelDesktop.Size = new Size(1012, 769);
             panelDesktop.TabIndex = 3;
             panelDesktop.Paint += panelDesktop_Paint;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
+            pictureBox2.Location = new Point(230, 200);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(476, 410);
+            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox2.TabIndex = 1;
+            pictureBox2.TabStop = false;
             // 
             // FormMainMenu
             // 
@@ -318,6 +332,8 @@
             ((System.ComponentModel.ISupportInitialize)btnMaximize).EndInit();
             ((System.ComponentModel.ISupportInitialize)btnMinimize).EndInit();
             ((System.ComponentModel.ISupportInitialize)iconCurrentChildForm).EndInit();
+            panelDesktop.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
         }
 
@@ -339,5 +355,6 @@
         private FontAwesome.Sharp.IconPictureBox btnMaximize;
         private FontAwesome.Sharp.IconPictureBox btnMinimize;
         private FontAwesome.Sharp.IconButton btnRegistrar;
+        private PictureBox pictureBox2;
     }
 }

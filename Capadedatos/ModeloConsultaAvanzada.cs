@@ -19,7 +19,7 @@ namespace Capadedatos
         private DateOnly fecha_nacimiento;
         private string telefono;
         private string email;
-
+        private bool isactive;
         //Campos PAGOS
 
         private int idpago;
@@ -45,9 +45,10 @@ namespace Capadedatos
         public DateOnly Fecha_nacimiento { get => fecha_nacimiento; set => fecha_nacimiento = value; }
         public string Telefono { get => telefono; set => telefono = value; }
         public string Email { get => email; set => email = value; }
+        public bool IsActive { get => isactive; set => isactive = value; }
 
 
-      //propiedad de validacion PAGO
+        //propiedad de validacion PAGO
 
         public int Idpago { get => idpago; set => idpago = value; }
         public DateOnly Fecha { get => fecha; set => fecha = value; }

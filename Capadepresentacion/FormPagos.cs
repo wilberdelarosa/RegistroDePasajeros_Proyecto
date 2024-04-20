@@ -21,7 +21,6 @@ namespace Capadepresentacion
         CD_Pago datosPago = new CD_Pago();
         CN_Pago negocioPago = new CN_Pago();
 
-        //private CN_Pago negocioPasa = new CN_Pago();
 
         public FormPagos()
         {
@@ -53,7 +52,6 @@ namespace Capadepresentacion
         private void MostrarPago()
 
         {
-            //dataGridViewPasajero.DataSource = objetoCN.MostrarProd();
             var listaPago = negocioPago.MostrarDatosPagos();
 
             // Asegurándonos de que el DataSource se actualiza correctamente
@@ -67,11 +65,11 @@ namespace Capadepresentacion
         private void CargarTiposDeDocumento()
         {
             cbTipoPagos.DataSource = tiposDePagos;
-            cbTipoPagos.SelectedIndex = 0; // Opcional: selecciona el primer tipo por defecto
+            cbTipoPagos.SelectedIndex = -1; // deja en bllanco la seleccion
         }
         private List<string> tiposDePagos = new List<string>
         {
-          "Tarjeta", // Documento Nacional de Identidad
+          "Tarjeta", 
           "Credito",
          "Transferencia",
 

@@ -32,7 +32,7 @@ namespace Capadepresentacion
         public FrmLogin()
         {
             InitializeComponent();
-           InitializeCustomComponents();
+            InitializeCustomComponents();
            
 
 
@@ -53,6 +53,12 @@ namespace Capadepresentacion
             btningresar.Enabled = false;
 
         }
+        public void ClearFields()
+        {
+            this.txtusuario.Text = "";
+            this.txtpassword.Text = "";
+        }
+    
         private void txtusuario_Enter(object sender, EventArgs e)
         {
             if (txtusuario.Text == "USUARIO")
@@ -90,7 +96,7 @@ namespace Capadepresentacion
 
         private void Exit_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            this.Hide();
         }
 
         private void minimizar_Click(object sender, EventArgs e)
@@ -150,7 +156,9 @@ namespace Capadepresentacion
                 // Aca abrir el formulario principal
                 FormMainMenu FormMainMenu = new FormMainMenu();
                 this.Hide(); // Oculta el formulario de login
+                MessageBox.Show("Bienvenido " + username, "Bienvenida", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 FormMainMenu.ShowDialog();
+              
                 //this.Close();
 
 
@@ -165,6 +173,15 @@ namespace Capadepresentacion
 
 
             }
+        }
+        public void SetUsername(string username)
+        {
+            // Actualiza el texto del menú con el nombre de usuario
+            // Asumiendo que tienes un Label llamado 'lblWelcome'
+
+            // Suponiendo que 'username' es una variable que contiene el nombre del usuario
+            MessageBox.Show("Bienvenido " + username, "Bienvenida", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
         }
         #endregion
 
@@ -224,6 +241,27 @@ namespace Capadepresentacion
         {
             txtpassword.UseSystemPasswordChar = !txtpassword.UseSystemPasswordChar;
             iconPictureBoxEye.IconChar = txtpassword.UseSystemPasswordChar ? FontAwesome.Sharp.IconChar.EyeSlash : FontAwesome.Sharp.IconChar.Eye;
+        }
+
+        private void FrmLogin_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (e.CloseReason == CloseReason.UserClosing)
+            {
+                // Encuentra si hay otros formularios abiertos aparte del login
+                bool hayOtrosFormulariosAbiertos = Application.OpenForms.Cast<Form>().Any(form => form != this);
+
+                if (hayOtrosFormulariosAbiertos)
+                {
+                    // Si hay otros formularios, simplemente oculta este formulario
+                    e.Cancel = true; // Cancela el cierre del formulario
+                    this.Hide();
+                }
+                else
+                {
+                    // Si no hay otros formularios, deja que la aplicación se cierre
+                    Application.Exit();
+                }
+            }
         }
     }
 

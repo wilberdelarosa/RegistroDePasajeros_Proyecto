@@ -31,7 +31,7 @@ namespace Capadepresentacion
             dataGridViewPasajero.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             this.btnEditarPasajero.Click += new EventHandler(this.btnEditarPasajero_Click);
             this.btnEliminarPasajero.Click += new EventHandler(this.btnEliminarPasajero_Click);
-            //  txtBuscarPasajero.TextChanged += new EventHandler(txtBuscarPasajero_TextChanged);
+             txtBuscarPasajero.TextChanged += new EventHandler(txtBuscarPasajero_TextChanged);
             dataGridViewPasajero.ReadOnly = true;
 
             MostrarPasajeros();
@@ -344,6 +344,27 @@ namespace Capadepresentacion
 
         }
 
+        private int ObtenerIdPasajeroSeleccionado()
+        {
+            // Asegúrate de que haya una fila seleccionada
+            if (dataGridViewPasajero.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Por favor, selecciona un pasajero de la lista.");
+                return -1; // Retorna -1 como indicador de que no hay selección
+            }
+
+            // Obtiene la primera fila seleccionada
+            DataGridViewRow filaSeleccionada = dataGridViewPasajero.SelectedRows[0];
+
+            // Asegúrate de que la celda que contiene el ID no es null y contiene un valor entero
+            if (filaSeleccionada.Cells["idpasajero"].Value == null || !int.TryParse(filaSeleccionada.Cells["idpasajero"].Value.ToString(), out int idPasajero))
+            {
+                MessageBox.Show("Ha ocurrido un error al obtener el ID del pasajero.");
+                return -1; // Retorna -1 como indicador de error
+            }
+
+            return idPasajero; // Retorna el ID del pasajero seleccionado
+        }
 
 
         #endregion
@@ -351,8 +372,10 @@ namespace Capadepresentacion
         #region BOTON ELIMINAR PASAJEROS
 
         private void btnEliminarPasajero_Click(object sender, EventArgs e)
+
         {
-            if (dataGridViewPasajero.SelectedRows.Count > 0)
+           
+             if (dataGridViewPasajero.SelectedRows.Count > 0)
             {
                 // Obtiene el ID del pasajero seleccionado
                 int idPasajero = Convert.ToInt32(dataGridViewPasajero.SelectedRows[0].Cells["idpasajero"].Value);
@@ -384,6 +407,10 @@ namespace Capadepresentacion
             {
                 MessageBox.Show("Por favor, selecciona un pasajero para eliminar.");
             }
+            
+            
+
+
 
         }
         #endregion
