@@ -9,10 +9,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="EntityFramework" Version="6.5.1" />
     <PackageReference Include="FontAwesome.Sharp" Version="6.3.0" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\GestionMantenimientoALITOEIRL\Controllers\Controllers.csproj" />
+    <ProjectReference Include="..\..\GestionMantenimientoALITOEIRL\Modelos\Modelos.csproj" />
     <ProjectReference Include="..\capadenegocio\capadenegocio.csproj" />
   </ItemGroup>
 

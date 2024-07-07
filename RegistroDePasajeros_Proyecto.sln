@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Capadedatos", "Capadedatos\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "capadenegocio", "capadenegocio\capadenegocio.csproj", "{B85BBB48-7215-46BF-8EED-936186046C32}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Capadepresentacion", "Capadepresentacion\Capadepresentacion.csproj", "{BBD0BCB1-A667-4C23-9845-90AED0EEAACD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "vista", "Capadepresentacion\vista.csproj", "{BBD0BCB1-A667-4C23-9845-90AED0EEAACD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

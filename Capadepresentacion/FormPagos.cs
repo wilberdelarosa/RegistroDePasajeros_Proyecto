@@ -12,11 +12,17 @@ using System.Windows.Controls;
 using System.Windows.Forms;
 using System.Windows.Media.Media3D;
 using static Capadedatos.Modelo_Pasajeros;
+using Controllers;
+
 
 namespace Capadepresentacion
 {
     public partial class FormPagos : Form
     {
+        MainController oMainController = new MainController();
+
+
+
         CN_Pasajeros negocioPasajero = new CN_Pasajeros();
         CD_Pago datosPago = new CD_Pago();
         CN_Pago negocioPago = new CN_Pago();
@@ -54,11 +60,13 @@ namespace Capadepresentacion
         private void MostrarPago()
 
         {
-            var listaPago = negocioPago.MostrarDatosPagos();
+            dataGridViewPagos.DataSource = oMainController.GetMantenimientos();
+
+            //  var listaPago = negocioPago.MostrarDatosPagos();
 
             // Asegurándonos de que el DataSource se actualiza correctamente
-            dataGridViewPagos.DataSource = null; // Limpiar el DataSource actual
-            dataGridViewPagos.DataSource = listaPago;
+            //dataGridViewPagos.DataSource = null; // Limpiar el DataSource actual
+            //  dataGridViewPagos.DataSource = listaPago;
         }
         #endregion
 

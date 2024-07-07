@@ -294,6 +294,7 @@
             cmbTipoDocumento.Name = "cmbTipoDocumento";
             cmbTipoDocumento.Size = new Size(286, 28);
             cmbTipoDocumento.TabIndex = 11;
+            cmbTipoDocumento.SelectedIndexChanged += cmbTipoDocumento_SelectedIndexChanged;
             // 
             // lblFechaNacimiento
             // 

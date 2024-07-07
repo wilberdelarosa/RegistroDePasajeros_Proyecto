@@ -31,7 +31,7 @@ namespace Capadepresentacion
             dataGridViewPasajero.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             this.btnEditarPasajero.Click += new EventHandler(this.btnEditarPasajero_Click);
             this.btnEliminarPasajero.Click += new EventHandler(this.btnEliminarPasajero_Click);
-             txtBuscarPasajero.TextChanged += new EventHandler(txtBuscarPasajero_TextChanged);
+            txtBuscarPasajero.TextChanged += new EventHandler(txtBuscarPasajero_TextChanged);
             dataGridViewPasajero.ReadOnly = true;
 
             cmbTipoDocumento.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -75,7 +75,7 @@ namespace Capadepresentacion
             LimpiarCampos();
 
         }
-      
+
         #region REFRESCAR DATAGRID
 
         private void MostrarPasajeros()
@@ -103,7 +103,7 @@ namespace Capadepresentacion
             cmbPais.ValueMember = "Idpais"; // Esto es lo que se almacenará como valor.
 
             cmbPais.SelectedIndex = 0;
-            
+
         }
         #endregion
 
@@ -146,7 +146,7 @@ namespace Capadepresentacion
         private Modelo_Pasajeros pasajeroActual;
         private bool esModoEdicion = false;
 
-    
+
         private void btnGuardar_Click(object sender, EventArgs e)
         {
 
@@ -257,7 +257,7 @@ namespace Capadepresentacion
             txtEmail.Text = pasajero.Email;
 
 
-       
+
 
 
 
@@ -397,8 +397,8 @@ namespace Capadepresentacion
         private void btnEliminarPasajero_Click(object sender, EventArgs e)
 
         {
-           
-             if (dataGridViewPasajero.SelectedRows.Count > 0)
+
+            if (dataGridViewPasajero.SelectedRows.Count > 0)
             {
                 // Obtiene el ID del pasajero seleccionado
                 int idPasajero = Convert.ToInt32(dataGridViewPasajero.SelectedRows[0].Cells["idpasajero"].Value);
@@ -430,13 +430,18 @@ namespace Capadepresentacion
             {
                 MessageBox.Show("Por favor, selecciona un pasajero para eliminar.");
             }
-            
-            
+
+
 
 
 
         }
         #endregion
+
+        private void cmbTipoDocumento_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 

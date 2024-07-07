@@ -60,7 +60,7 @@
             // 
             // pictureBox1
             // 
-            pictureBox1.Image = Properties.Resources.LOGO010;
+           // pictureBox1.Image = Properties.Resources.LOGO010;
             pictureBox1.Location = new Point(46, 119);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(133, 109);
@@ -140,7 +140,7 @@
             // 
             // Exit
             // 
-            Exit.Image = Properties.Resources.SALIR;
+            //Exit.Image = Properties.Resources.SALIR;
             Exit.Location = new Point(736, 9);
             Exit.Name = "Exit";
             Exit.Size = new Size(32, 30);
@@ -151,7 +151,7 @@
             // 
             // minimizar
             // 
-            minimizar.Image = Properties.Resources.minimizar2;
+          //  minimizar.Image = Properties.Resources.minimizar2;
             minimizar.Location = new Point(690, 0);
             minimizar.Name = "minimizar";
             minimizar.Size = new Size(30, 30);
@@ -165,7 +165,7 @@
             lblMensaje.AutoSize = true;
             lblMensaje.Font = new Font("MS Reference Sans Serif", 7.8F, FontStyle.Regular, GraphicsUnit.Point);
             lblMensaje.ForeColor = Color.OrangeRed;
-            lblMensaje.Image = Properties.Resources.MaterialSymbolsLightErrorOutlineRounded__3_;
+            //lblMensaje.Image = Properties.Resources.MaterialSymbolsLightErrorOutlineRounded__3_;
             lblMensaje.ImageAlign = ContentAlignment.MiddleLeft;
             lblMensaje.Location = new Point(341, 213);
             lblMensaje.Name = "lblMensaje";

@@ -19,6 +19,9 @@ namespace Capadepresentacion
         private Panel leftBorderBtn;
         private Form currentChildForm;
 
+        bool sideBar_Expand = true;
+
+
         //constructor
         public FormMainMenu()
         {
@@ -32,15 +35,19 @@ namespace Capadepresentacion
             this.ControlBox = false;
             this.DoubleBuffered = true;
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
+
+
+
+
         }
         private struct RGBColors
         {
-            public static Color color1 = Color.FromArgb(172, 126, 241);
-            public static Color color2 = Color.FromArgb(249, 118, 176);
-            public static Color color3 = Color.FromArgb(253, 138, 114);
-            public static Color color4 = Color.FromArgb(95, 77, 221);
-            public static Color color5 = Color.FromArgb(249, 88, 155);
-            public static Color color6 = Color.FromArgb(24, 161, 251);
+            public static Color color1 = Color.FromArgb(249, 220, 26);
+            public static Color color2 = Color.FromArgb(249, 220, 26);
+            public static Color color3 = Color.FromArgb(249, 220, 26);
+            public static Color color4 = Color.FromArgb(249, 220, 26);
+            public static Color color5 = Color.FromArgb(249, 220, 26);
+            public static Color color6 = Color.FromArgb(249, 220, 26);
         }
 
         //Methods
@@ -65,6 +72,8 @@ namespace Capadepresentacion
                 //Current Child Form Icon
                 iconCurrentChildForm.IconChar = currentBtn.IconChar;
                 iconCurrentChildForm.IconColor = color;
+                iconPictureBox1.IconColor = Color.White;
+
             }
         }
         private FrmLogin loginForm;
@@ -85,7 +94,7 @@ namespace Capadepresentacion
         {
             if (currentBtn != null)
             {
-                currentBtn.BackColor = Color.FromArgb(31, 30, 68);
+                currentBtn.BackColor = Color.FromArgb(35, 40, 45);
                 currentBtn.ForeColor = Color.Gainsboro;
                 currentBtn.TextAlign = ContentAlignment.MiddleLeft;
                 currentBtn.IconColor = Color.Gainsboro;
@@ -155,8 +164,11 @@ namespace Capadepresentacion
             DisableButton();
             leftBorderBtn.Visible = false;
             iconCurrentChildForm.IconChar = IconChar.Home;
-            iconCurrentChildForm.IconColor = Color.MediumPurple;
+            iconCurrentChildForm.IconColor = Color.FromArgb(249, 220, 26); 
             lblTitleChildForm.Text = "INICIO";
+
+            iconPictureBox1.IconChar = IconChar.Home;
+            iconPictureBox1.IconColor = Color.FromArgb(249, 220, 26);
         }
 
         //Drag From
@@ -209,6 +221,101 @@ namespace Capadepresentacion
 
             // Mostramos el formulario de login
             loginForm.Show();
+        }
+
+        private void Timer_Sidebar_Menu_Tick(object sender, EventArgs e)
+        {
+            if (sideBar_Expand)
+            {
+                btnpasajeros.Text = ""; // Hide text
+                btnpagos.Text = "";
+                ptnconsultas.Text = "";
+                btnacercade.Text = "";
+                btnRegistrar.Text = "";
+
+
+                panelMenu.Width -= 120; // Aumentar la velocidad
+                if (panelMenu.Width <= panelMenu.MinimumSize.Width)
+                {
+                    sideBar_Expand = false;
+
+                    Timer_Sidebar_Menu.Stop();
+                    AdjustMenuItems();
+
+                    // Adjust visibility of text when collapsed
+                }
+            }
+            else
+            {
+
+                panelMenu.Width += 120; // Aumentar la velocidad
+                if (panelMenu.Width >= panelMenu.MaximumSize.Width)
+                {
+                    sideBar_Expand = true;
+
+
+                    Timer_Sidebar_Menu.Stop();
+                    AdjustMenuItems();
+
+                    // Adjust visibility of text when expanded
+                }
+            }
+        }
+
+        private void Menu_Button_Click(object sender, EventArgs e)
+        {
+            Timer_Sidebar_Menu.Start();
+
+        }
+        private void AdjustMenuItems()
+        {
+            foreach (IconButton button in panelMenu.Controls.OfType<IconButton>())
+            {
+                if (sideBar_Expand)
+                {
+                    btnpasajeros.Text = btnpasajeros.Tag.ToString();
+                    btnpagos.Text = btnpagos.Tag.ToString();
+                    ptnconsultas.Text = ptnconsultas.Tag.ToString();
+                    btnacercade.Text = btnacercade.Tag.ToString();
+                    btnRegistrar.Text = btnRegistrar.Tag.ToString();
+
+
+                    Menu_Button.ForeColor = Color.White;
+
+                    // Show text
+                }
+                else
+                {
+                    btnpasajeros.Text = ""; // Hide text
+                    btnpagos.Text = "";
+                    ptnconsultas.Text = "";
+                    btnacercade.Text = "";
+                    btnRegistrar.Text = "";
+
+                    Menu_Button.ForeColor = Color.Yellow;
+
+
+                }
+            }
+        }
+
+        private void panelTitleBar_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void iconCurrentChildForm_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void iconPictureBox1_Click(object sender, EventArgs e)
+        {
+            if (currentChildForm != null)
+            {
+                currentChildForm.Close();
+            }
+            Reset();
         }
     }
 }
